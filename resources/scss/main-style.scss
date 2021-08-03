@@ -1,0 +1,119 @@
+.bg-hover-white:hover,
+.navbar.fixed-top.bg-fixed-white {
+    background: #fff !important
+}
+header{
+    display: block
+}
+.header-absolute {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1030
+}
+.navbar-fixed-light.fixed-top .navbar-nav .active>.nav-link,
+.navbar-fixed-light.fixed-top .navbar-nav .nav-link.active,
+.navbar-fixed-light.fixed-top .navbar-nav .nav-link.show,
+.navbar-fixed-light.fixed-top .navbar-nav .show>.nav-link,
+.navbar-hover-light:hover .navbar-nav .active>.nav-link,
+.navbar-hover-light:hover .navbar-nav .nav-link.active,
+.navbar-hover-light:hover .navbar-nav .nav-link.show,
+.navbar-hover-light:hover .navbar-nav .show>.nav-link,
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: rgba(0, 0, 0, .95)
+}
+.navbar {
+    position: relative;
+    padding: 1.1rem 1rem
+}
+
+.navbar,
+.navbar .container,
+.navbar .container-fluid,
+.navbar .container-lg,
+.navbar .container-md,
+.navbar .container-sm,
+.navbar .container-xl {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .275rem;
+    padding-bottom: .275rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    line-height: inherit;
+    white-space: nowrap
+}
+
+.navbar-brand:focus,
+.navbar-brand:hover {
+    text-decoration: none
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none
+}
+
+.navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0
+}
+
+.navbar-nav .dropdown-menu {
+    position: static;
+    float: none
+}
+
+.navbar-text {
+    display: inline-block;
+    padding-top: .5rem;
+    padding-bottom: .5rem
+}
+
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center
+}
+
+.navbar-toggler {
+    padding: .2rem .75rem;
+    font-size: 1.125rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:hover {
+    text-decoration: none
+}
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background: 50%/100% 100% no-repeat
+}
+
+.navbar-nav-scroll {
+    max-height: 75vh;
+    overflow-y: auto
+}

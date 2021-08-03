@@ -2,8 +2,8 @@ require('./bootstrap');
 
 import Vue from "vue";
 
-// Пример компонента
-Vue.component('example-component', require('./components/ExampleComponent').default);
+
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 new Vue({
     el: '#app',
