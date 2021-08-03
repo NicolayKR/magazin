@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\clothes;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +18,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/index2', function () {
-    return view('test');
+Route::get('/test', function () {
+    for($i=2; $i<8; $i++){
+        $newObject = clothes::create(array(
+            'category' => 'Футболка',
+            'name'=> 'Футболка с тигром',
+            'price' => 20.00,
+            'img_path'=> 'assets/img/'.$i.'.jpg'
+        ));
+        $newObject->save();
+    }
 });
+
+
 
 Auth::routes();
 
