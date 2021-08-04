@@ -1,8 +1,11 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 // Variables
 @import 'variables';
+@import  "~slither-slider/plugin-dist/slither-slider.css"; 
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -13,7 +16,6 @@
 
 //steel
 @import './1.scss';
-// @import './2.scss';
 //@import './main-style.scss';
 @import './jsx-153.scss';
 @import './wp-block-library-css';
@@ -23,4 +25,6 @@
 @import './woocommerce-general-css';
 @import './dokan-fontawesome-css.scss';
 @import './dokan-theme-skin-css.scss';
+
+
 

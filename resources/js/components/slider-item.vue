@@ -1,10 +1,28 @@
 <template>
     <div class="item_wrapp">
-        <div class="item_date">{{getDate(item_data.date_news)}}</div>
-        <div class="item_title">{{item_data.description_news}}</div>
-        <button class="item_button"><a>Подробнее</a></button>
+        <div class="swiper-slide">
+            <div class="product-slider-item">
+                <div class="product">
+                    <div class="product-image">
+                        <div style="display:block;overflow:hidden;position:relative;box-sizing:border-box;margin:0">
+                            <div style="display:block;box-sizing:border-box;padding-top:150%"></div><img alt="product" :src="item_data.img_path" sizes="(max-width: 576px) 100vw, 530px" :srcSet="`${item_data.img_path} , ${item_data.img_path}, ${item_data.img_path}`" decoding="async" class="img-fluid" style="visibility:inherit;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/>
+                        </div>
+                        <div class="product-hover-overlay"><a class="product-hover-overlay-link" href="/detail-1"></a>
+                            <div class="product-hover-overlay-buttons"><a class="btn btn-dark btn-buy" href="/detail-1"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">Вперед</span></a></div>
+                        </div>
+                    </div>
+                    <div class="py-2">
+                        <p class="text-muted text-sm mb-1">{{item_data.category}}</p>
+                        <h3 class="h6 text-uppercase mb-1"><a class="text-dark" href="/detail-1">{{item_data.name}}</a></h3><span class="text-muted">$
+                            {{item_data.price}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
+
 
 <script>
 export default {
@@ -14,76 +32,40 @@ export default {
         }
     },
     methods:{
-        getDate(a){
-            const dateFormat = require('dateformat');
-            const res = dateFormat(new Date(a), "dd.mm.yy")
-            return res;
-        }
+        // getDate(a){
+        //     const dateFormat = require('dateformat');
+        //     const res = dateFormat(new Date(a), "dd.mm.yy")
+        //     return res;
+        // }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+
 .item{
     &_wrapp{
-        max-width: 349px;
-        min-height: 243px;
-        border: 1px solid #D8D8D8;
+        max-width: 100%;
+        max-height: 100%;
         box-sizing: border-box;
-        background-color: white;
-        margin-left: 32px;
         z-index: 1;
         &:nth-child(1){
             margin-left: 0px;
             }
     }
-    &_date{
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 16px;
-        color: #636363;
-        margin-top: 34px;
-        margin-left: 27px;
-    }
-    &_title{
-        font-weight: 900;
-        font-size: 18px;
-        line-height: 24px;
-        color: #2B2B2B;
-        margin-top: 11px;
-        margin-left: 27px;
-    }
-    &_button{
-        background-color: white;
-        border: 1px solid #D51522;
-        box-sizing: border-box;
-        filter: drop-shadow(0px 2px 8px rgba(65, 65, 65, 0.25));
-        margin-top: 75px;
-        margin-left: 27px;
-        height: 44px;
-        width: 156px;
-        a{
-            color: #D51522;
-            font-size: 14px;
-            line-height: 16px;
-            font-weight: 500;
-            &:hover{
-                color:red;
-                }
-            }
-        }
-    }
-@media ( max-width: 990px ){
-    .item_wrapp{
-        max-width: 316px;
-        margin: 0 auto;
+
+}
+// @media ( max-width: 990px ){
+//     .item_wrapp{
+//         max-width: 316px;
+//         margin: 0 auto;
         
-    }
-}
-@media ( max-width: 375px ){
-    .item_wrapp{
-        max-width: 300px;
-        margin: 0 auto;
-    }
-}
+//     }
+// }
+// @media ( max-width: 375px ){
+//     .item_wrapp{
+//         max-width: 300px;
+//         margin: 0 auto;
+//     }
+// }
 </style>
