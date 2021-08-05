@@ -1,11 +1,11 @@
 <template>
     <div class="row" v-if="!flagError">
         <div class="col-6 col-lg-4"  v-for="item_data in paginatedObject" :key="item_data.id">
-            <div class="mb-30px"><a href="/blog/pellentesque-habitant-morbi"><img class="img-fluid" :src="item_data.img_path" alt="Pellentesque habitant morbi" /></a>
+            <div class="mb-30px"><a :href="`/blog/${item_data.id}`"><img class="img-fluid" :src="item_data.img_path" alt="Pellentesque habitant morbi" /></a>
                 <div class="mt-3"><small class="text-uppercase text-muted">{{item_data.topic}}</small>
-                    <h5 class="my-2"><a class="text-dark" href="/blog/pellentesque-habitant-morbi">{{item_data.title}}</a></h5>
+                    <h5 class="my-2"><a class="text-dark" :href="`/blog/${item_data.id}`">{{item_data.title}}</a></h5>
                     <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>{{getMonth(item_data.date)}}</p>
-                    <p class="my-2 text-muted">{{getLittleBitText(item_data.text)}}</p><a class="btn btn-link text-gray-700 pl-0" href="/blog/pellentesque-habitant-morbi">Read more <i class="fa fa-long-arrow-alt-right ml-2"></i></a>
+                    <p class="my-2 text-muted">{{getLittleBitText(item_data.text)}}</p><a class="btn btn-link text-gray-700 pl-0" :href="`/blog/${item_data.id}`">Read more <i class="fa fa-long-arrow-alt-right ml-2"></i></a>
                 </div>
             </div>
         </div>

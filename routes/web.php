@@ -41,33 +41,40 @@ Route::get('/getDataNew','App\Http\Controllers\DataController@getDataNew');
 Route::get('/getDataBlogs', 'App\Http\Controllers\DataController@getDataBlogs');
 Route::get('/getDataCatalog', 'App\Http\Controllers\DataController@getDataCatalog');
 Route::get('/card-product/{id}', 'App\Http\Controllers\DataController@getCardProduct');
+Route::get('/blog/{id}', 'App\Http\Controllers\DataController@getBlog');
 
 Route::get('/slider', function () {
     return view('test');
 });
 Route::get('/test', function () {
+ 
     // $collection = clothes::select('category', 'name', 'price', 'img_path')->get();
     // return $collection;
-    // for($i=2; $i<11; $i++){
-    //     $newObject = Blog::create(array(
-    //         'topic' => 'Новая тема',
-    //         'title'=> 'Что происходит в мире?',
-    //         'text'=> 'Мне бегом делать прививки!',
-    //         'img_path'=> 'assets/img/'.$i.'.jpg'
-    //     ));
-    //     $newObject->save();
-    // }
-    for($i=1; $i<50; $i++){
-        $current_status = rand(1, 4);
-        $newObject = clothes::create(array(
-            'category' => 'Футболка',
-            'name'=> 'Футболка с тигром',
-            'price' => 20.00,
-            'img_path'=> 'assets/img/2.jpg',
-            'status'=> $current_status
+    for($i=2; $i<11; $i++){
+        $newObject = Blog::create(array(
+            'author'=>'Коля Крючков',
+            'topic' => 'Новая тема',
+            'title'=> 'Что происходит в мире?',
+            'text'=> 'Мне бегом делать прививки!',
+            'img_path'=> '/assets/img/'.$i.'.jpg'
         ));
         $newObject->save();
     }
+    // for($i=1; $i<50; $i++){
+    //     $current_status = rand(1, 4);
+    //     $newObject = clothes::create(array(
+    //         'category' => 'Футболка',
+    //         'name'=> 'Футболка с тигром',
+    //         'price' => 20.00,
+    //         'img_path'=> '/assets/img/2.jpg',
+    //         'status'=> $current_status,
+    //         'reviews'=> 0,
+    //         'old_price'=>40.00,
+    //         'description'=>"Описание",
+    //         'tags'=>'Летняя'
+    //     ));
+    //     $newObject->save();
+    // }
 });
 
 Auth::routes();

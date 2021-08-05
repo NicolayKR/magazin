@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="app">
-        <new-items/>
+        <card-product/>
     </div>
 </body>
 </html>

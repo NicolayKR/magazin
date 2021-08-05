@@ -30,16 +30,12 @@
                                 </svg></a><button aria-label="Toggle navigation" type="button" class="navbar-toggler-right navbar-toggler"><i class="fa fa-bars"></i></button>
                             <div class="collapse navbar-collapse">
                                 <ul class="mx-auto navbar-nav">
-                                    <li class="dropdown nav-item"><a aria-haspopup="true" href="/" class="dropdown-toggle nav-link" aria-expanded="false">Главная</a>
-                                        <div tabindex="-1" role="menu" aria-hidden="true" class="  dropdown-menu"><a href="/" tabindex="0" role="menuitem" class="dropdown-item">Fullscreen home + Lookbook</a><a href="/index-2" tabindex="0" role="menuitem" class="active dropdown-item">Split-screen home</a><a href="/index-3" tabindex="0" role="menuitem" class="dropdown-item">Classic home</a><a href="/index-4" tabindex="0" role="menuitem" class="dropdown-item">Parallax sections<span class="ml-1 mt-n1 badge badge-warning">New</span></a><a href="/index-5" tabindex="0" role="menuitem" class="dropdown-item">Slider + broken grid<span class="ml-1 mt-n1 badge badge-warning">New</span></a></div>
-                                    </li>
-                                    <li class="nav-item"><a href="/about" class="nav-link">О нас</a></li>
+                                    <li class="nav-item"><a aria-haspopup="true" href="/" class="nav-link" aria-expanded="false">Главная</a></li>
+                                    <li class="nav-item"><a aria-haspopup="true" href="/catalog" class="nav-link" aria-expanded="false">Каталог</a></li>
                                     <li class="position-static nav-item"><a aria-haspopup="true" href="/blog" class=" nav-link" aria-expanded="false">Блог</a></li>
+                                    <li class="nav-item"><a href="/about" class="nav-link">О нас</a></li>
                                     <li class="nav-item"><a href="/contact" class="nav-link">Контакты</a></li>
-                                    <li class="nav-item"><a aria-haspopup="true" href="/404" class="nav-link" aria-expanded="false">404</a>
-                                    </li>
-                                    <li class="nav-item"><a aria-haspopup="true" href="/catalog" class="nav-link" aria-expanded="false">Каталог</a>
-                                    </li>
+                                    <li class="nav-item"><a aria-haspopup="true" href="/404" class="nav-link" aria-expanded="false">404</a></li>
                                 </ul>
                                 <div class="d-flex align-items-center justify-content-between justify-content-lg-end mt-1 mb-2 my-lg-0">
                                     <div class="nav-item navbar-icon-link" data-toggle="search"><svg class="svg-icon">
