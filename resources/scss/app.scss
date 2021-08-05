@@ -5,6 +5,7 @@
 
 // Variables
 @import 'variables';
+@import 'card-product';
 @import  "~slither-slider/plugin-dist/slither-slider.css"; 
 
 // Bootstrap
@@ -26,5 +27,6 @@
 @import './dokan-fontawesome-css.scss';
 @import './dokan-theme-skin-css.scss';
 
-
+@import '~swiper/swiper.scss';
+@import "~swiper/components/pagination/pagination.min.css"
 

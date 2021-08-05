@@ -110,21 +110,21 @@
                     <div class="container">
                         <div class="row">
                             <div class="service-column col-lg-4">
-                                <img class="svg-icon service-icon" src="assets/img/car.png"></img>
+                                <img class="svg-icon service-icon" src="/assets/img/car.png"></img>
                                 <div class="service-text">
                                     <h6 class="text-uppercase">Free shipping &amp; return</h6>
                                     <p class="text-muted font-weight-light text-sm mb-0">Free Shipping over $300</p>
                                 </div>
                             </div>
                             <div class="service-column col-lg-4">
-                                <img class="svg-icon service-icon" src="assets/img/money.png"></img>
+                                <img class="svg-icon service-icon" src="/assets/img/money.png"></img>
                                 <div class="service-text">
                                     <h6 class="text-uppercase">Money back guarantee</h6>
                                     <p class="text-muted font-weight-light text-sm mb-0">30 Days Money Back Guarantee</p>
                                 </div>
                             </div>
                             <div class="service-column col-lg-4">
-                                <img class="svg-icon service-icon" src="assets/img/support.png"></img>
+                                <img class="svg-icon service-icon" src="/assets/img/support.png"></img>
                                 <div class="service-text">
                                     <h6 class="text-uppercase">020-800-456-747</h6>
                                     <p class="text-muted font-weight-light text-sm mb-0">24/7 Available Support</p>
@@ -187,10 +187,10 @@
                             </div>
                             <div class="col-md-6">
                                 <ul class="list-inline mb-0 mt-2 mt-md-0 text-center text-md-right">
-                                    <li class="list-inline-item pe-1 ps-1 bg-white"><img class="w-2rem " src="assets/img/visa.png" alt="Visa" /></li>
-                                    <li class="list-inline-item pe-1 ps-1 bg-white"><img class="w-2rem " src="assets/img/master-card.png" alt="Master-card" /></li>
-                                    <li class="list-inline-item pe-1 ps-1 bg-white"><img class="w-2rem " src="assets/img/paypal.png" alt="PayPal" /></li>
-                                    <li class="list-inline-item pe-1 ps-1 bg-white"><img class="w-2rem " src="assets/img/western-union.png" alt="western-union" /></li>
+                                    <li class="list-inline-item pe-1 ps-1 bg-white"><img class="w-2rem " src="/assets/img/visa.png" alt="Visa" /></li>
+                                    <li class="list-inline-item pe-1 ps-1 bg-white"><img class="w-2rem " src="/assets/img/master-card.png" alt="Master-card" /></li>
+                                    <li class="list-inline-item pe-1 ps-1 bg-white"><img class="w-2rem " src="/assets/img/paypal.png" alt="PayPal" /></li>
+                                    <li class="list-inline-item pe-1 ps-1 bg-white"><img class="w-2rem " src="/assets/img/western-union.png" alt="western-union" /></li>
                                 </ul>
                             </div>
                         </div>

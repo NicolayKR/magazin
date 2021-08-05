@@ -33,11 +33,14 @@ Route::get('/blog', function () {
 Route::get('/catalog', function () {
     return view('catalog');
 })->name('catalog');
+Route::get('/card-product', function () {
+    return view('productCard');
+})->name('card-product');
 Route::get('/getDataSlider','App\Http\Controllers\DataController@getDataSlider');
 Route::get('/getDataNew','App\Http\Controllers\DataController@getDataNew');
 Route::get('/getDataBlogs', 'App\Http\Controllers\DataController@getDataBlogs');
 Route::get('/getDataCatalog', 'App\Http\Controllers\DataController@getDataCatalog');
-
+Route::get('/card-product/{id}', 'App\Http\Controllers\DataController@getCardProduct');
 
 Route::get('/slider', function () {
     return view('test');
@@ -54,17 +57,17 @@ Route::get('/test', function () {
     //     ));
     //     $newObject->save();
     // }
-    // for($i=1; $i<50; $i++){
-    //     $current_status = rand(0, 4);
-    //     $newObject = clothes::create(array(
-    //         'category' => 'Футболка',
-    //         'name'=> 'Футболка с тигром',
-    //         'price' => 20.00,
-    //         'img_path'=> 'assets/img/2.jpg',
-    //         'status'=> $current_status
-    //     ));
-    //     $newObject->save();
-    // }
+    for($i=1; $i<50; $i++){
+        $current_status = rand(1, 4);
+        $newObject = clothes::create(array(
+            'category' => 'Футболка',
+            'name'=> 'Футболка с тигром',
+            'price' => 20.00,
+            'img_path'=> 'assets/img/2.jpg',
+            'status'=> $current_status
+        ));
+        $newObject->save();
+    }
 });
 
 Auth::routes();

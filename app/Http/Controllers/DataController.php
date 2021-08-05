@@ -26,4 +26,10 @@ class DataController extends Controller
         $collection = clothes::select('id','category', 'name', 'price', 'img_path','status')->get();
         return $collection;
     }
+    public function getCardProduct($id){
+        $collection = clothes::select('category', 'name', 'price', 'img_path')->where('id', $id)->get();
+        return view('productCard', [
+            'product' => $collection
+        ]);
+    }
 }
