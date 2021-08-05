@@ -5105,6 +5105,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 // Import Swiper Vue.js components
+ // import Swiper core and required modules
 
  // install Swiper modules
 
@@ -5591,8 +5592,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var slither_slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! slither-slider */ "./node_modules/slither-slider/plugin-dist/slither-slider.umd.min.js");
 /* harmony import */ var slither_slider__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(slither_slider__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var swiper_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! swiper/core */ "./node_modules/swiper/esm/components/core/core-class.js");
-/* harmony import */ var swiper_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! swiper/core */ "./node_modules/swiper/esm/components/pagination/pagination.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./script */ "./resources/js/script.js");
@@ -5600,9 +5599,6 @@ __webpack_require__(/*! ./script */ "./resources/js/script.js");
 
 
 vue__WEBPACK_IMPORTED_MODULE_1__.default.use((slither_slider__WEBPACK_IMPORTED_MODULE_0___default()));
- // install Swiper modules
-
-swiper_core__WEBPACK_IMPORTED_MODULE_2__.default.use([swiper_core__WEBPACK_IMPORTED_MODULE_3__.default]);
 vue__WEBPACK_IMPORTED_MODULE_1__.default.component('slider-component', __webpack_require__(/*! ./components/slider.vue */ "./resources/js/components/slider.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_1__.default.component('new-items', __webpack_require__(/*! ./components/newItems.vue */ "./resources/js/components/newItems.vue").default);
 vue__WEBPACK_IMPORTED_MODULE_1__.default.component('blog-list', __webpack_require__(/*! ./components/blog-list.vue */ "./resources/js/components/blog-list.vue").default);
