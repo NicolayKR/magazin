@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\clothes;
 use App\Models\Blog;
+use App\Models\tableimg;
 use Illuminate\Http\Request;
 
 
@@ -30,7 +31,14 @@ class DataController extends Controller
         $index = clothes::select('reviews')->where('id',$id)->get();
         $current_index = $index[0]->reviews + 1;
         clothes::where('id',$id)->update(array('reviews'=>$current_index));
-        $product = clothes::select('category', 'name', 'price', 'img_path','status','reviews','old_price','description','tags')->where('id', $id)->get();
+        $product = clothes::select('id','category', 'name', 'price', 'img_path','status','reviews','old_price','description','tags')->where('id', $id)->get()->toArray();
+        $img_collection = tableimg::select('img_path')->where('id_product', $id)->get();
+        $img_array = [];
+        $final_array = [];
+        foreach($img_collection as $item){
+            $img_array[] = $item['img_path'];
+        }
+        $product[0]['img_slider'][] = $img_array;
         return view('productCard', [
             'product' => $product
         ]);

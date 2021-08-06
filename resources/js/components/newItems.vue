@@ -8,7 +8,7 @@
                         <div style="display:block;box-sizing:border-box;padding-top:150%"></div><img alt="product" :src="item_data.img_path" sizes="(max-width: 576px) 100vw, 530px" :srcSet="`${item_data.img_path} , ${item_data.img_path}, ${item_data.img_path}`" decoding="async" class="img-fluid" style="visibility:inherit;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%"/>
                     </div>
                     <div class="product-hover-overlay"><a class="product-hover-overlay-link" :href="`/card-product/${item_data.id}`"></a>
-                        <div class="product-hover-overlay-buttons"><a class="btn btn-outline-dark btn-product-left" href="#"><i class="fa fa-shopping-cart"></i></a><a class="btn btn-dark btn-buy" href="/detail-1"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">Вперед</span></a><a class="btn btn-outline-dark btn-product-right"><i class="fa fa-expand-arrows-alt"></i></a></div>
+                        <div class="product-hover-overlay-buttons"><a class="btn btn-outline-dark btn-product-left cart-add" href="#"><i class="fa fa-shopping-cart"></i></a><a class="btn btn-dark btn-buy" href="/detail-1"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">Вперед</span></a><a class="btn btn-outline-dark btn-product-right"><i class="fa fa-expand-arrows-alt"></i></a></div>
                     </div>
                 </div>
                 <div class="py-2">

@@ -8,25 +8,20 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="py-3 col-12 order-2 col-lg-6 order-lg-1">
-                    <div class="swiper-container">
+                    <div class="swiper-container mySwiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="detail-full-item bg-cover" style="background-image:url({{$product[0]->img_path}})"></div>
+                                <div class="detail-full-item bg-cover" style="background-image:url({{$product[0]['img_path']}})"></div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="detail-full-item bg-cover" style="background-image:url({{$product[0]->img_path}})"></div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="detail-full-item bg-cover" style="background-image:url({{$product[0]->img_path}})"></div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="detail-full-item bg-cover" style="background-image:url({{$product[0]->img_path}})"></div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="detail-full-item bg-cover" style="background-image:url({{$product[0]->img_path}})"></div>
-                            </div>
+                            @foreach ($product[0]['img_slider'] as $current_img)
+                                @foreach ($current_img as $item)
+                                <div class="swiper-slide">
+                                    <div class="detail-full-item bg-cover" style="background-image:url({{$item}})"></div>
+                                </div> 
+                                @endforeach 
+                            @endforeach
                         </div>
-                        <div class="swiper-pagination swiper-pagination-white"></div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
                 <div class="d-flex align-items-center pl-lg-5 mb-5 col-12 order-1 col-lg-6 order-lg-2 col-xl-5">
@@ -35,31 +30,31 @@
                             <ol class="breadcrumb justify-content-center no-border mb-0">
                                 <li class="breadcrumb-item"><a class="" href="/">Home</a></li>
                                 <li class="breadcrumb-item"><a class="" href="/category">Jackets and tops</a></li>
-                                <li class="active breadcrumb-item" aria-current="page">{{$product[0]->name}}</span></li>
+                                <li class="active breadcrumb-item" aria-current="page">{{$product[0]['name']}}</span></li>
                             </ol>
                         </nav>
-                        <h1 class="mb-4">{{$product[0]->name}}</h1>
+                        <h1 class="mb-4">{{$product[0]['name']}}</h1>
                         <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-sm-between mb-4">
                             <ul class="list-inline mb-2 mb-sm-0">
                                 <li class="list-inline-item h4 font-weight-light mb-0">$
-                                    {{$product[0]->price}}
+                                    {{$product[0]['price']}}
                                 </li>
                                 <li class="list-inline-item text-muted font-weight-light"><del>$
-                                    {{$product[0]->old_price}}
+                                    {{$product[0]['old_price']}}
                                 </del></li>
                             </ul>
                             <div class="d-flex align-items-center">
-                                <div class="mr-2"><i class="fa fa-star text-primary mr-1"></i><i class="fa fa-star text-primary mr-1"></i><i class="fa fa-star text-primary mr-1"></i><i class="fa fa-star text-primary mr-1"></i><i class="fa fa-star text-gray-300 mr-1"></i></div><span class="text-muted text-uppercase text-sm mt-1">{{$product[0]->reviews}}
+                                <div class="mr-2"><i class="fa fa-star text-primary mr-1"></i><i class="fa fa-star text-primary mr-1"></i><i class="fa fa-star text-primary mr-1"></i><i class="fa fa-star text-primary mr-1"></i><i class="fa fa-star text-gray-300 mr-1"></i></div><span class="text-muted text-uppercase text-sm mt-1">{{$product[0]['reviews']}}
                                      просмотров
                                 </span>
                             </div>
                         </div>
-                        <p class="mb-4 text-muted">{{$product[0]->description}}</p>
+                        <p class="mb-4 text-muted">{{$product[0]['description']}}</p>
                         <form class="">
                             <div class="row">
                                 <div class="detail-option mb-4 col-sm-6 col-lg-12 col-xl-6">
                                     <h6 class="detail-option-heading">Size <span>(required)</span></h6>
-                                    <div class="react-select-container css-2b097c-container">
+                                    <div class="react-select-container css-a-container">
                                         <div class="react-select__control css-1o1npcy-control">
                                             <div class="react-select__value-container react-select__value-container--has-value css-1hwfws3">
                                                 <div class="react-select__single-value css-1uccc91-singleValue">Small</div>
@@ -83,15 +78,25 @@
                                         <!-- -->College<input type="radio" name="material" value="value_1" id="material_1" required="" class="input-invisible form-check-input" />
                                     </label>
                                 </div>
-                                <div class="detail-option mb-5 col-12 col-lg-6"><label class="detail-option-heading font-weight-bold">Items <span>(required)</span></label><input type="number" class="form-control detail-quantity" name="items" value="1" /></div>
+                                
+                                <div class="detail-option mb-5 col-12 col-lg-6 d-flex align-items-center"><label class="detail-option-heading font-weight-bold">Items <span>(required)</span></label>
+                                <div class="num-block skin-2">
+                                <div class="num-in">
+                                    <span class="minus dis"></span>
+                                    <input type="text" class="in-num detail-quantity cart-index" value="1" readonly="">
+                                    <span class="plus"></span>
+                                </div>
+                                </div>
+                               
+                            </div>
                             </div>
                             <ul class="list-inline mb-5">
-                                <li class="list-inline-item"><button type="submit" class="mb-1 btn btn-dark btn-lg"><i class="fa fa-shopping-cart mr-2"></i>Add to Cart</button></li>
+                                <li class="list-inline-item"><button type="button" class="mb-1 btn btn-dark btn-lg cart-add" id="{{$product[0]['id']}}"><i class="fa fa-shopping-cart mr-2"></i>Add to Cart </button></li>
                                 <li class="list-inline-item"><a href="#" class="mb-1 btn btn-outline-secondary"><i class="far fa-heart mr-2"></i>Add to wishlist</a></li>
                             </ul>
                             <ul class="list-unstyled">
-                                <li><strong>Категории: </strong><a class="text-muted" href="#">{{$product[0]->category}}</a></li>
-                                <li><strong>Теги: </strong><a class="text-muted">{{$product[0]->tags}}</a></li>
+                                <li><strong>Категории: </strong><a class="text-muted" href="#">{{$product[0]['category']}}</a></li>
+                                <li><strong>Теги: </strong><a class="text-muted">{{$product[0]['tags']}}</a></li>
                             </ul>
                         </form>
                     </div>
@@ -119,7 +124,7 @@
                                 <li>at the floundering legs, and only stopped</li>
                             </ul>
                         </div>
-                        <div class="col-md-5 col-xl-4"><img class="img-fluid" src="{{$product[0]->img_path}}" alt="Modern Jacket" /></div>
+                        <div class="col-md-5 col-xl-4"><img class="img-fluid" src="{{$product[0]['img_path']}}" alt="Modern Jacket" /></div>
                     </div>
                 </div>
                 <div class="tab-pane">

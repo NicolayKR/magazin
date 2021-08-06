@@ -20,7 +20,7 @@
                             </div>
                             <div class="product-hover-overlay"><a class="product-hover-overlay-link" :href="`/card-product/${item_data.id}`"></a>
                                 <div class="product-hover-overlay-buttons">
-                                    <a class="btn btn-outline-dark btn-product-left" href="#"><i class="fa fa-shopping-cart"></i></a><a class="btn btn-dark btn-buy" :href="`/card-product/${item_data.id}`"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">Вперед</span></a><a class="btn btn-outline-dark btn-product-right"><i class="fa fa-expand-arrows-alt"></i></a>
+                                    <a class="btn btn-outline-dark btn-product-left cart-add" href="#"><i class="fa fa-shopping-cart"></i></a><a class="btn btn-dark btn-buy" :href="`/card-product/${item_data.id}`"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">Вперед</span></a><a class="btn btn-outline-dark btn-product-right"><i class="fa fa-expand-arrows-alt"></i></a>
                                 </div>
                             </div>
                         </div>

@@ -4,8 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title')</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
         <script src="{{ asset('assets/js/app.js') }}" defer></script>
+        <link
+        rel="stylesheet"
+        href="https://unpkg.com/swiper/swiper-bundle.min.css"
+        />
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     </head>
     <body>
         <div id="app">
@@ -48,9 +54,9 @@
                                                 <use xlink:href="/icons/orion-svg-sprite.svg#cart-1"> </use>
                                             </svg><span class="text-sm ml-2 ml-lg-0 text-uppercase text-sm font-weight-bold d-none d-sm-inline d-lg-none">View cart</span></a>
                                         <div class="d-none d-lg-block">
-                                            <div class="dropdown"><a href="#" aria-haspopup="true" class="navbar-icon-link" aria-expanded="false">
+                                            <div class="dropdown"><a href="/basket" aria-haspopup="true" class="navbar-icon-link" aria-expanded="false">
                                                     <i class="fas fa-shopping-cart"></i>
-                                                    <div class="navbar-icon-link-badge">3 </div>
+                                                    <span class="navbar-icon-link-badge cart-index">{{isset($_COOKIE['cart_id']) ? \Cart::session($_COOKIE['cart_id'])->getTotalQuantity() : '0'}}</span>
                                                 </a>
                                                 <div tabindex="-1" role="menu" aria-hidden="true" class="p-4 dropdown-menu dropdown-menu-right">
                                                     <div class="navbar-cart-product-wrapper">
