@@ -18,6 +18,10 @@ class CreateOrdersTable extends Migration
             $table->integer('status')->default(0);
             $table->string('name')->nullable();
             $table->string('telephone')->nullable();
+            $table->string('email')->default('');
+            $table->string('street')->default('');
+            $table->string('city')->default('');
+            $table->string('zip')->default('');
             $table->timestamps();
         });
     }

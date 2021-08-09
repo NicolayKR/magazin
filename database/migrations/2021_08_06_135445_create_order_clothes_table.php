@@ -17,6 +17,7 @@ class CreateOrderClothesTable extends Migration
             $table->id();
             $table->integer('order_id');
             $table->integer('clothes_id');
+            $table->integer('count')->default(1);
             $table->timestamps();
         });
     }

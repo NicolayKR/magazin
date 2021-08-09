@@ -5179,9 +5179,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       catalog_data: [],
       flagError: false,
       pageNumber: 1,
@@ -5212,6 +5217,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
+    submit: function submit() {
+      this.$refs.form.submit();
+    },
     pageClick: function pageClick(page) {
       this.pageNumber = page;
       this.countItemShows();
@@ -5337,11 +5345,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       new_data: [],
-      flagError: false
+      flagError: false,
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
   },
   mounted: function mounted() {
@@ -5380,6 +5395,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee, null, [[0, 8]]);
       }))();
+    },
+    submit: function submit() {
+      this.$refs.form.submit();
     }
   }
 });
@@ -5624,6 +5642,7 @@ window.addEventListener('DOMContentLoaded', function () {
   }); /////////////////// product +/-
 
   $(document).ready(function () {
+    updateCount();
     $('.num-in span').click(function () {
       var $input = $(this).parents('.num-block').find('input.in-num');
 
@@ -5658,29 +5677,29 @@ window.addEventListener('DOMContentLoaded', function () {
       dynamicBullets: true,
       clickable: true
     }
-  });
-  $('.cart-add').click(function (event) {
-    event.preventDefault();
-    var qty = parseInt($(".detail-quantity").val());
-    var total_qty = parseInt($('.cart-index').text());
-    total_qty += qty;
-    $('.cart-index').text(total_qty);
-    addToCart(this.id, qty);
-  });
+  }); // $('.plus').click(function(event){
+  //     event.preventDefault();
+  //     addToCart(this.attr("data-id"), qty = 1);
+  // });
+  // // $('.cart-add').click(function(event){
+  // //     event.preventDefault();
+  // //     let qty = parseInt($(".detail-quantity").val());
+  // //     let total_qty = parseInt($('.cart-index').text());
+  // //     total_qty += qty;
+  // //     $('.cart-index').text(total_qty);
+  // //     addToCart(this.id, qty);
+  // // });
 
-  function addToCart(id, qty) {
+  function updateCount() {
     $.ajax({
-      url: "/add-to-cart",
-      type: "POST",
-      data: {
-        id: id,
-        qty: qty
-      },
+      url: "/basket-count",
+      type: "GET",
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
       success: function success(data) {
-        console.log(data);
+        var total_qty = data;
+        $('.cart-index').text(total_qty);
       }
     });
   }
@@ -43601,10 +43620,32 @@ var render = function() {
                                 _c(
                                   "div",
                                   {
-                                    staticClass: "product-hover-overlay-buttons"
+                                    staticClass:
+                                      "product-hover-overlay-buttons d-flex"
                                   },
                                   [
-                                    _vm._m(0, true),
+                                    _c(
+                                      "form",
+                                      {
+                                        attrs: {
+                                          action:
+                                            "/add-to-cart/" + item_data.id,
+                                          method: "POST"
+                                        }
+                                      },
+                                      [
+                                        _vm._m(0, true),
+                                        _vm._v(" "),
+                                        _c("input", {
+                                          attrs: {
+                                            type: "hidden",
+                                            name: "_token"
+                                          },
+                                          domProps: { value: _vm.csrf }
+                                        })
+                                      ]
+                                    ),
+                                    _vm._v(" "),
                                     _c(
                                       "a",
                                       {
@@ -43903,10 +43944,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "a",
+      "button",
       {
         staticClass: "btn btn-outline-dark btn-product-left cart-add",
-        attrs: { href: "#" }
+        attrs: { type: "submit" }
       },
       [_c("i", { staticClass: "fa fa-shopping-cart" })]
     )
@@ -44039,7 +44080,44 @@ var render = function() {
                       attrs: { href: "/card-product/" + item_data.id }
                     }),
                     _vm._v(" "),
-                    _vm._m(0, true)
+                    _c(
+                      "div",
+                      { staticClass: "product-hover-overlay-buttons d-flex" },
+                      [
+                        _c(
+                          "form",
+                          {
+                            attrs: {
+                              action: "/add-to-cart/" + item_data.id,
+                              method: "POST"
+                            }
+                          },
+                          [
+                            _vm._m(0, true),
+                            _vm._v(" "),
+                            _c("input", {
+                              attrs: { type: "hidden", name: "_token" },
+                              domProps: { value: _vm.csrf }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-dark btn-buy",
+                            attrs: { href: "/card-product/" + item_data.id }
+                          },
+                          [
+                            _c("i", { staticClass: "fa-search fa" }),
+                            _c("span", { staticClass: "btn-buy-label ml-2" }, [
+                              _vm._v("Вперед")
+                            ])
+                          ]
+                        ),
+                        _vm._m(1, true)
+                      ]
+                    )
                   ])
                 ]),
                 _vm._v(" "),
@@ -44079,26 +44157,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product-hover-overlay-buttons" }, [
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-outline-dark btn-product-left cart-add",
-          attrs: { href: "#" }
-        },
-        [_c("i", { staticClass: "fa fa-shopping-cart" })]
-      ),
-      _c(
-        "a",
-        { staticClass: "btn btn-dark btn-buy", attrs: { href: "/detail-1" } },
-        [
-          _c("i", { staticClass: "fa-search fa" }),
-          _c("span", { staticClass: "btn-buy-label ml-2" }, [_vm._v("Вперед")])
-        ]
-      ),
-      _c("a", { staticClass: "btn btn-outline-dark btn-product-right" }, [
-        _c("i", { staticClass: "fa fa-expand-arrows-alt" })
-      ])
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-outline-dark btn-product-left cart-add",
+        attrs: { type: "submit" }
+      },
+      [_c("i", { staticClass: "fa fa-shopping-cart" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "btn btn-outline-dark btn-product-right" }, [
+      _c("i", { staticClass: "fa fa-expand-arrows-alt" })
     ])
   }
 ]

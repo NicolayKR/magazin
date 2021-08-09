@@ -22,6 +22,22 @@
             </div>
         </div>
     </div>
+    @if(session()->has('success'))
+    <div class="alert alert-success">{{session()->get('success')}}</div>
+    <!-- <script>
+        $(document).ready(
+            alert({{session()->get('success')}});
+        );
+    </script> -->
+    @endif
+    @if(session()->has('warning'))
+    <div  class="alert alert-danger">{{session()->get('warning')}}</div>
+    <!-- <script>
+        $(document).ready(
+            alert({{session()->get('warning')}});
+        );
+    </script> -->
+    @endif
     <section class="pt-6 pb-5">
         <div class="container">
             <div class="row">

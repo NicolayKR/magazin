@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <p class="mb-4 text-muted">{{$product[0]['description']}}</p>
-                        <form class="">
+                        <form class="" action="{{route('addToCart', $product[0]['id'])}}" method="POST">
                             <div class="row">
                                 <div class="detail-option mb-4 col-sm-6 col-lg-12 col-xl-6">
                                     <h6 class="detail-option-heading">Size <span>(required)</span></h6>
@@ -71,28 +71,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="detail-option mb-4 col-sm-6 col-lg-12 col-xl-6">
-                                    <h6 class="detail-option-heading">Type <span>(required)</span></h6><label for="material_0" class="btn btn-sm btn-outline-secondary detail-option-btn-label mr-2">
-                                        <!-- -->Hoodie<input type="radio" name="material" value="value_0" id="material_0" required="" class="input-invisible form-check-input" />
-                                    </label><label for="material_1" class="btn btn-sm btn-outline-secondary detail-option-btn-label mr-2">
-                                        <!-- -->College<input type="radio" name="material" value="value_1" id="material_1" required="" class="input-invisible form-check-input" />
-                                    </label>
-                                </div>
                                 
                                 <div class="detail-option mb-5 col-12 col-lg-6 d-flex align-items-center"><label class="detail-option-heading font-weight-bold">Items <span>(required)</span></label>
                                 <div class="num-block skin-2">
-                                <div class="num-in">
-                                    <span class="minus dis"></span>
-                                    <input type="text" class="in-num detail-quantity cart-index" value="1" readonly="">
-                                    <span class="plus"></span>
-                                </div>
+                                    <div class="num-in">
+                                        <span class="minus dis"></span>
+                                        <input type="text" name="quant" class="in-num detail-quantity cart-index" value="1" readonly="">
+                                        <span class="plus"></span>
+                                    </div>
                                 </div>
                                
                             </div>
                             </div>
                             <ul class="list-inline mb-5">
-                                <li class="list-inline-item"><button type="button" class="mb-1 btn btn-dark btn-lg cart-add" id="{{$product[0]['id']}}"><i class="fa fa-shopping-cart mr-2"></i>Add to Cart </button></li>
-                                <li class="list-inline-item"><a href="#" class="mb-1 btn btn-outline-secondary"><i class="far fa-heart mr-2"></i>Add to wishlist</a></li>
+                                @csrf
+                                <li class="list-inline-item"><button type="submit" class="mb-1 btn btn-dark btn-lg cart-add" id="{{$product[0]['id']}}"><i class="fa fa-shopping-cart mr-2"></i>Add to Cart </button></li>
+                                <!-- <li class="list-inline-item"><a href="#" class="mb-1 btn btn-outline-secondary"><i class="far fa-heart mr-2"></i>Add to wishlist</a></li> -->
                             </ul>
                             <ul class="list-unstyled">
                                 <li><strong>Категории: </strong><a class="text-muted" href="#">{{$product[0]['category']}}</a></li>

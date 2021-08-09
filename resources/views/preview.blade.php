@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Корзина')
+@section('title', 'Оформление заказа')
 
 @section('content')
 <main>
@@ -69,19 +69,7 @@
                                             <div class="col-md-4">
                                                 <div class="align-items-center row">
                                                     <div class="d-md-none text-muted col-7 col-sm-9">Quantity</div>
-                                                    <div class="col-5 col-sm-3 col-md-12">
-                                                        <div class="d-flex align-items-center">
-                                                            <form action="/remove-to-cart/{{$product->id}}" method="POST">
-                                                                <button class="btn btn-items btn-items-decrease">-</button>
-                                                                @csrf
-                                                            </form>
-                                                            <input type="text" class="form-control text-center border-0 border-md input-items" value="{{$product->pivot->count}}" readonly/>
-                                                            <form action="/add-to-cart/{{$product->id}}" method="POST">
-                                                                <button type="submit" class="btn btn-items btn-items-increase">+</button>
-                                                                @csrf
-                                                            </form>
-                                                        </div>
-                                                    </div>
+                                                    <div class="col-5 col-sm-3 col-md-12">{{$product->pivot->count}}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -105,13 +93,9 @@
                             </div>
                         </div>
                         @endforeach
-                    @else
-                    <div class="alert alert-primary" role="alert">
-                    Ваша корзина пуста!
-                    </div>
                     @endif
                 </div>
-                <div class="my-5 d-flex justify-content-between flex-column flex-lg-row"><a class="btn btn-link text-muted" href="/category"><i class="fa fa-chevron-left"></i> Continue Shopping</a><a class="btn btn-dark" href="{{ route('BasketPlace') }}">Proceed to checkout <i class="fa fa-chevron-right"></i></a></div>
+                <div class="my-5 d-flex justify-content-between flex-column flex-lg-row"><a class="btn btn-link text-muted" href="/catalog"><i class="fa fa-chevron-left"></i> Продолжить покупки</a><a class="btn btn-dark" href="{{ route('finish-order') }}">Proceed to checkout <i class="fa fa-chevron-right"></i></a></div>
             </div>
             @if($order != null)
             <div class="col-lg-4">

@@ -56,7 +56,7 @@
                                         <div class="d-none d-lg-block">
                                             <div class="dropdown"><a href="/basket" aria-haspopup="true" class="navbar-icon-link" aria-expanded="false">
                                                     <i class="fas fa-shopping-cart"></i>
-                                                    <span class="navbar-icon-link-badge cart-index">{{isset($_COOKIE['cart_id']) ? \Cart::session($_COOKIE['cart_id'])->getTotalQuantity() : '0'}}</span>
+                                                    <span class="navbar-icon-link-badge cart-index">{{session('orderId')}}</span>
                                                 </a>
                                                 <div tabindex="-1" role="menu" aria-hidden="true" class="p-4 dropdown-menu dropdown-menu-right">
                                                     <div class="navbar-cart-product-wrapper">

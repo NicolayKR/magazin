@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     /////////////////// product +/-
 $(document).ready(function() {
+    updateCount();
     $('.num-in span').click(function () {
         var $input = $(this).parents('.num-block').find('input.in-num');
       if($(this).hasClass('minus')) {
@@ -39,28 +40,29 @@ $(document).ready(function() {
             clickable: true,
         },
     });
-    $('.cart-add').click(function(event){
-        event.preventDefault();
-        let qty = parseInt($(".detail-quantity").val());
-        let total_qty = parseInt($('.cart-index').text());
-        total_qty += qty;
-        $('.cart-index').text(total_qty);
-        addToCart(this.id, qty);
-    });
+    // $('.plus').click(function(event){
+    //     event.preventDefault();
+    //     addToCart(this.attr("data-id"), qty = 1);
+    // });
+    // // $('.cart-add').click(function(event){
+    // //     event.preventDefault();
+    // //     let qty = parseInt($(".detail-quantity").val());
+    // //     let total_qty = parseInt($('.cart-index').text());
+    // //     total_qty += qty;
+    // //     $('.cart-index').text(total_qty);
+    // //     addToCart(this.id, qty);
+    // // });
     
-    function addToCart(id, qty){
+    function updateCount(){
         $.ajax({
-            url: "/add-to-cart",
-            type: "POST",
-            data:{
-                id: id,
-                qty: qty
-            },
+            url: "/basket-count",
+            type: "GET",
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             success: (data)=>{
-                console.log(data);
+                let total_qty = data;
+                $('.cart-index').text(total_qty);
             }
         });
     }
