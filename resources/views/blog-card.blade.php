@@ -8,8 +8,8 @@
         <div class="container">
             <nav class="" aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center no-border mb-0">
-                    <li class="breadcrumb-item"><a class="" href="/">Home</a></li>
-                    <li class="breadcrumb-item"><a class="" href="/blog">Blog</a></li>
+                    <li class="breadcrumb-item"><a class="" href="/">Главная</a></li>
+                    <li class="breadcrumb-item"><a class="" href="/blog">Блог</a></li>
                     <li class="active breadcrumb-item" aria-current="page"><span class="">{{$collection[0]->topic}}</span></li>
                 </ol>
             </nav>
@@ -22,9 +22,7 @@
                                     <img style="max-width:100%;display:block;margin:0;border:none;padding:0" alt="" aria-hidden="true" role="presentation" src="{{$collection[0]->img_path}}">
                                 </div>
                             </a>
-                            <div>Written by <a class="text-muted font-weight-bold" href="/blog/[slug]#">{{$collection[0]->author}}</a><span class="mx-1">|</span> <!-- -->January 16, 2020
-                                <!-- --> in <a class="font-weight-bold" href="blog">Fashion and Style</a>
-                            </div>
+                            <blog-card :collection="{{$collection[0]}}"/>
                         </div>
                     </div>
                 </div>

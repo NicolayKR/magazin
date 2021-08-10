@@ -5,7 +5,7 @@
 @section('content')
 <main>
     <div class="mh-full-screen d-flex align-items-center dark-overlay pt-header-height">
-        <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0"><img alt="" src="assets/img/1313.jpg" decoding="async" class="bg-image" sizes="100vw" srcset="assets/img/13.jpg, assets/img/9.jpg, assets/img/13.jpg, assets/img/13.jpg, assets/img/13.jpg" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
+        <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0"><img alt="" src="/assets/img/13.jpg" decoding="async" class="bg-image" sizes="100vw" srcset="/assets/img/13.jpg, /assets/img/13.jpg, /assets/img/13.jpg, /assets/img/13.jpg, /assets/img/13.jpg" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
         </img></div>
         <div class="text-white text-lg overlay-content py-6 py-lg-0 container">
             <h1 class="display-3 font-weight-bold mb-5">Oops, that page is not here.</h1>

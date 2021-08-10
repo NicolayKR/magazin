@@ -9,12 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="bg-white p-5"><strong class="text-uppercase text-muted d-inline-block mb-2 text-sm">Featured</strong>
-                        <h2 class="mb-3">Fashion, purpose &amp; freedom</h2>
-                        <p class="text-muted">As am hastily invited settled at limited civilly fortune me. Really spring in extent an by. Judge but built party world. Of so am he remember although required. Bachelor unpacked be advanced at. Confined in declared marianne is vicinity</p><a class="btn btn-link text-dark p-0" href="/blog/fashion-purpose-freedom">Continue reading
-                            <!-- --> <i class="fa fa-long-arrow-alt-right"></i>
-                        </a>
-                    </div>
+                    <recomended-blog/>
                 </div>
             </div>
         </div>

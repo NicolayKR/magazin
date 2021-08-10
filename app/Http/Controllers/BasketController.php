@@ -16,9 +16,16 @@ class BasketController extends Controller
         }else{
             $order = null;
         }
-        return view('basket', [
-            'order' => $order
-        ]);
+        return $order;
+    }
+    public function modalBasket(){
+        $orderId = session('orderId');
+        if(!is_null($orderId)){
+            $order = Order::findOrFail($orderId);
+        }else{
+            $order = null;
+        }
+        return $order->clothes;
     }
     public function addToCart($productId, Request $request)
     {
@@ -48,33 +55,30 @@ class BasketController extends Controller
             return redirect()->route('basket');
         }
     }
-    public function removeToCart($productId){
+    public function removeToCart(Request $request){
+        $id = $request->query('item');
         $orderId = session('orderId');
-        if(is_null($orderId)){
-            return redirect()->route('basket');
-        }
         $order = Order::find($orderId);
         if($order->clothes->contains($productId)){
-            $pivotRow = $order->clothes()->where('clothes_id', $productId)->first()->pivot;
+            $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
             if($pivotRow->count < 2){
-                $order->clothes()->detach($productId); 
+                $order->clothes()->detach($id); 
             }else{
                 $pivotRow->count--;
                 $pivotRow->update();
             }
         }else{
-            $order->clothes()->detach($productId); 
+            $order->clothes()->detach($id); 
         }
-        return redirect()->route('basket');
     }
-    public function removeAllCart($productId){
+    public function removeAllCart(Request $request){
+        $id = $request->query('item');
         $orderId = session('orderId');
         if(is_null($orderId)){
             return redirect()->route('basket');
         }
         $order = Order::find($orderId);
-        $order->clothes()->detach($productId); 
-        return redirect()->route('basket');
+        $order->clothes()->detach($id); 
     }
     public function BasketPlace(){
         $orderId = session('orderId');
@@ -94,7 +98,9 @@ class BasketController extends Controller
         }
         $order = Order::find($orderId);
         $success = $order->saveOrder($request->fullname_invoice,$request->street_invoice,$request->emailaddress_invoice,$request->city_invoice, $request->phonenumber_invoice, $request->zip_invoice);
-        return view('payment');
+        return view('payment',[
+            'order' => $order
+        ]);
     }
     public function GetPreview(){
         $orderId = session('orderId');
@@ -117,11 +123,22 @@ class BasketController extends Controller
         $success = $order->getStatus();
         session()->forget('orderId');
         if($success){
-            session()->flash('success', 'Ваш заказ принят в обработку');
+            $status = 'Ваш заказ принят в обработку';
         }else{
-            session()->flash('warning', 'Произошла ошибка');
+            $status = 'Произошла ошибка';
         }
-        return redirect()->route('index');
+        return view('index')->with('status', $status);
+    }
+    public function BasketCount(){
+        $count = 0;
+        $orderId = session('orderId');
+        if(!is_null($orderId)){
+            $order = Order::find(session('orderId'));
+            foreach($order->clothes as $product){
+                $count =$count + $product->pivot->count;
+            }
+        }
+        return $count;
     }
     // public function addToCart(Request $request){
     //     if(!isset($_COOKIE['cart_id'])){

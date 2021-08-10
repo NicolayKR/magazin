@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\tableimg;
 use Darryldecode\Cart\Cart;
 use App\Models\Order;
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,38 +41,34 @@ Route::get('/card-product', function () {
     return view('productCard');
 })->name('card-product');
 
-Route::get('/basket', 'App\Http\Controllers\BasketController@basket')->name('basket');
 Route::get('/getDataSlider','App\Http\Controllers\DataController@getDataSlider');
 Route::get('/getDataNew','App\Http\Controllers\DataController@getDataNew');
 Route::get('/getDataBlogs', 'App\Http\Controllers\DataController@getDataBlogs');
 Route::get('/getDataCatalog', 'App\Http\Controllers\DataController@getDataCatalog');
 Route::get('/card-product/{id}', 'App\Http\Controllers\DataController@getCardProduct');
 Route::get('/blog/{id}', 'App\Http\Controllers\DataController@getBlog');
-Route::post('/add-to-cart/{id}', 'App\Http\Controllers\BasketController@addToCart')->name('addToCart');
-Route::post('/remove-to-cart/{id}', 'App\Http\Controllers\BasketController@removeToCart')->name('removeToCart');
-Route::post('/remove-all-cart/{id}', 'App\Http\Controllers\BasketController@removeAllCart')->name('removeAllCart');
+Route::get('/basket', 'App\Http\Controllers\BasketController@basket')->name('basket');
+Route::post('/add-to-cart', 'App\Http\Controllers\BasketController@addToCart')->name('addToCart');
+Route::post('/remove-to-cart', 'App\Http\Controllers\BasketController@removeToCart')->name('removeToCart');
+Route::get('/remove-all-cart', 'App\Http\Controllers\BasketController@removeAllCart')->name('removeAllCart');
 Route::get('/basket-place', 'App\Http\Controllers\BasketController@BasketPlace')->name('BasketPlace');
 Route::post('/basket-confirm', 'App\Http\Controllers\BasketController@BasketConfirm')->name('BasketConfirm');
 Route::get('/preview', 'App\Http\Controllers\BasketController@GetPreview')->name('preview');
 Route::get('/finish-order', 'App\Http\Controllers\BasketController@finishOrder')->name('finish-order');
-
-
-Route::get('/basket-count', function(){
-    $count = 0;
-    $orderId = session('orderId');
-    if(!is_null($orderId)){
-        $order = Order::find(session('orderId'));
-        foreach($order->clothes as $product){
-            $count =$count + $product->pivot->count;
-        }
-    }
-    return $count;
-});
+Route::get('/basket-count', 'App\Http\Controllers\BasketController@BasketCount')->name('basket-count');
+Route::get('/modalBasket', 'App\Http\Controllers\BasketController@modalBasket')->name('modalBasket');
+Route::get('/getDataBlog', 'App\Http\Controllers\DataController@getDataBlog');
 Route::get('/slider', function () {
     return view('test');
 });
 Route::get('/test', function () {
-    session()->forget('orderId');
+    // $id = 8;
+    // $orderId = session('orderId');
+    // if(is_null($orderId)){
+    //     return redirect()->route('basket');
+    // }
+    // $order = Order::find($orderId);
+    // $order->clothes()->detach($id); 
     // $orderId = session('orderId'); 
     // $order = Order::find($orderId); 
     // $array = $order->clothes;

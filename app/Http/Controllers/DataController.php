@@ -6,7 +6,7 @@ use App\Models\clothes;
 use App\Models\Blog;
 use App\Models\tableimg;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class DataController extends Controller
 {
@@ -44,9 +44,26 @@ class DataController extends Controller
         ]);
     }
     public function getBlog($id){
-        $collection = Blog::select('id','topic', 'title', 'text','img_path')->selectRaw('DATE(updated_at) as date')->where('id', $id)->get();
-        return view('blog-card', [
-            'collection' => $collection
-        ]);
+        $result = Blog::select(Blog::raw('COUNT(*)'))->where('id',$id)->count(); 
+        if($result == 1) {
+            $collection = Blog::select('id','topic', 'title', 'text','img_path')->selectRaw('DATE(updated_at) as date')->where('id', $id)->get();
+            return view('blog-card', [
+                'collection' => $collection
+            ]);
+        }else{
+            abort(404);
+        }
+    }
+    public function getDataBlog(Request $request){
+        $blog = $request->query('blog');
+        if($blog == 'null'){
+            $count = DB::table('blogs')->count();
+            $random_id = random_int(1, $count);
+            $collection = Blog::select('id','author','topic', 'title', 'text','img_path')->selectRaw('DATE(updated_at) as date')->where('id',$random_id)->get();
+            return $collection;
+        }else{
+            $collection = Blog::select('id','author','topic', 'title', 'text','img_path')->selectRaw('DATE(updated_at) as date')->where('id',$blog)->get();
+            return $collection;
+        }
     }
 }

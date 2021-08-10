@@ -5,7 +5,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     /////////////////// product +/-
 $(document).ready(function() {
-    updateCount();
     $('.num-in span').click(function () {
         var $input = $(this).parents('.num-block').find('input.in-num');
       if($(this).hasClass('minus')) {
@@ -40,30 +39,39 @@ $(document).ready(function() {
             clickable: true,
         },
     });
-    // $('.plus').click(function(event){
-    //     event.preventDefault();
-    //     addToCart(this.attr("data-id"), qty = 1);
-    // });
-    // // $('.cart-add').click(function(event){
-    // //     event.preventDefault();
-    // //     let qty = parseInt($(".detail-quantity").val());
-    // //     let total_qty = parseInt($('.cart-index').text());
-    // //     total_qty += qty;
-    // //     $('.cart-index').text(total_qty);
-    // //     addToCart(this.id, qty);
-    // // });
-    
-    function updateCount(){
-        $.ajax({
-            url: "/basket-count",
-            type: "GET",
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: (data)=>{
-                let total_qty = data;
-                $('.cart-index').text(total_qty);
-            }
-        });
-    }
+    // function updateCount(){
+    //     $.ajax({
+    //         url: "/basket-count",
+    //         type: "GET",
+    //         headers: {
+    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //         },
+    //         success: (data)=>{
+    //             let total_qty = data;
+    //             $('.cart-index').text(total_qty);
+    //         }
+    //     });
+    // }
+    $(window).scroll(function() {
+		let header = $('#main-header').height();
+		if($(window).scrollTop() > header){
+				$('#main-header').addClass('fixed-top')
+			}else{
+				if($('#main-header').hasClass('fixed-top')){
+				$('#main-header').removeClass('fixed-top')
+				}
+			}
+    });
+	// $('#basket').click(function(){
+	// 	$('#basket-modal').toggleClass('show');
+	// });
+	$(window).click(function(event){
+		if($(event.target).attr('id')=='cart' || $(event.target).attr('id')=='index-cart'){	
+			$('#basket-modal').toggleClass('show');
+		}else{
+			if($('#basket-modal').hasClass('show')){
+				$('#basket-modal').removeClass('show');
+		   }
+		}
+	});
 });

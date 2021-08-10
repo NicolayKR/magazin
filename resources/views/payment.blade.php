@@ -15,23 +15,22 @@
         <div class="row">
             <div class="col-lg-8">
                 <ul class="custom-nav mb-5 nav nav-pills">
-                    <li class="w-25 nav-item"><a href="/checkout-1" class="text-sm  nav-link">Address</a></li>
-                    <li class="w-25 nav-item"><a href="/checkout-3" class="text-sm  nav-link active">Payment Method</a></li>
-                    <li class="w-25 nav-item"><a href="/checkout-4" class="text-sm disabled  nav-link">Order Review</a></li>
+                <li class="w-25 nav-item"><a href="/basket-place" class="text-sm  nav-link ">Данные</a></li>
+                    <li class="w-25 nav-item"><a href="/basket-confirm" class="text-sm nav-link active">Метод оплаты</a></li>
+                    <li class="w-25 nav-item"><a href="/preview" class="text-sm disabled  nav-link">Просмотр заказа</a></li>
                 </ul>
                 <form class="">
                     <div class="collapse show">
                         <div class="mb-5">
                             <div class="block mb-3">
-                                <div class="block-header"><a href="#" class="accordion-link font-weight-bold " aria-expanded="true">Option one</a></div>
+                                <div class="block-header"><a href="#" class="accordion-link font-weight-bold " aria-expanded="true">Оплата картой</a></div>
                                 <div class="collapse show">
                                     <div class="block-body">
                                         <div class="row">
-                                            <div class="col-md-6 form-group"><label for="card-name" class="form-label">Name on Card</label><input type="text" name="card-name" placeholder="Name on card" value="" class="form-control" /></div>
-                                            <div class="col-md-6 form-group"><label for="card-number" class="form-label">Card Number</label><input type="text" name="card-number" placeholder="Card number" value="" class="form-control" /></div>
-                                            <div class="col-md-4 form-group"><label for="expiry-date" class="form-label">Expiry Date</label><input type="text" name="expiry-date" placeholder="MM/YY" value="" class="form-control" /></div>
+                                            <div class="col-md-6 form-group"><label for="card-name" class="form-label">Имя владельца</label><input type="text" name="card-name" placeholder="Name on card" value="" class="form-control" /></div>
+                                            <div class="col-md-6 form-group"><label for="card-number" class="form-label">Номер карты</label><input type="text" name="card-number" placeholder="Card number" value="" class="form-control" /></div>
+                                            <div class="col-md-4 form-group"><label for="expiry-date" class="form-label">Дата обслуживания</label><input type="text" name="expiry-date" placeholder="MM/YY" value="" class="form-control" /></div>
                                             <div class="col-md-4 form-group"><label for="cvv" class="form-label">CVC/CVV</label><input type="text" name="cvv" placeholder="123" value="" class="form-control" /></div>
-                                            <div class="col-md-4 form-group"><label for="zip" class="form-label">ZIP</label><input type="text" name="zip" placeholder="123" value="" class="form-control" /></div>
                                         </div>
                                     </div>
                                 </div>
@@ -68,15 +67,15 @@
             <div class="col-lg-4">
                 <div class="block mb-5">
                     <div class="block-header">
-                        <h6 class="text-uppercase mb-0">Order Summary</h6>
+                        <h6 class="text-uppercase mb-0">Общая стоимость</h6>
                     </div>
                     <div class="block-body bg-light pt-1">
-                        <p class="text-sm">Shipping and additional costs are calculated based on values you have entered.</p>
+                        <p class="text-sm">Доставка и дополнительные расходы рассчитываются на основе введенных вами значений.</p>
                         <ul class="order-summary mb-0 list-unstyled">
-                            <li class="order-summary-item"><span>Order Subtotal </span><span>$390.00</span></li>
-                            <li class="order-summary-item"><span>Shipping and handling</span><span>$10.00</span></li>
-                            <li class="order-summary-item"><span>Tax</span><span>$0.00</span></li>
-                            <li class="order-summary-item border-0"><span>Total</span><strong class="order-summary-total">$400.00</strong></li>
+                            <li class="order-summary-item"><span>Итого по заказу</span><span>${{$order->getFullPrice()}}</span></li>
+                            <li class="order-summary-item"><span>Доставка</span><span>$0.00</span></li>
+                            <li class="order-summary-item"><span>Налог</span><span>$0.00</span></li>
+                            <li class="order-summary-item border-0"><span>Всего</span><strong class="order-summary-total">${{$order->getFullPrice()}}</strong></li>
                         </ul>
                     </div>
                 </div>

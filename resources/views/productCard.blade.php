@@ -28,8 +28,8 @@
                     <div>
                         <nav class="" aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center no-border mb-0">
-                                <li class="breadcrumb-item"><a class="" href="/">Home</a></li>
-                                <li class="breadcrumb-item"><a class="" href="/category">Jackets and tops</a></li>
+                                <li class="breadcrumb-item"><a class="" href="/">Главная</a></li>
+                                <li class="breadcrumb-item"><a class="" href="/category">Каталог</a></li>
                                 <li class="active breadcrumb-item" aria-current="page">{{$product[0]['name']}}</span></li>
                             </ol>
                         </nav>
@@ -53,11 +53,11 @@
                         <form class="" action="{{route('addToCart', $product[0]['id'])}}" method="POST">
                             <div class="row">
                                 <div class="detail-option mb-4 col-sm-6 col-lg-12 col-xl-6">
-                                    <h6 class="detail-option-heading">Size <span>(required)</span></h6>
+                                    <h6 class="detail-option-heading">Размер</h6>
                                     <div class="react-select-container css-a-container">
                                         <div class="react-select__control css-1o1npcy-control">
                                             <div class="react-select__value-container react-select__value-container--has-value css-1hwfws3">
-                                                <div class="react-select__single-value css-1uccc91-singleValue">Small</div>
+                                                <div class="react-select__single-value css-1uccc91-singleValue">S</div>
                                                 <input id="react-select-2-input" readonly="" tabindex="0" value="" aria-autocomplete="list" class="css-62g3xt-dummyInput" />
                                             </div>
                                             <div class="react-select__indicators css-1wy0on6">
@@ -72,7 +72,7 @@
                                     </div>
                                 </div>
                                 
-                                <div class="detail-option mb-5 col-12 col-lg-6 d-flex align-items-center"><label class="detail-option-heading font-weight-bold">Items <span>(required)</span></label>
+                                <div class="detail-option mb-5 col-12 col-lg-6 d-flex align-items-center"><label class="detail-option-heading font-weight-bold">Количество</label>
                                 <div class="num-block skin-2">
                                     <div class="num-in">
                                         <span class="minus dis"></span>
@@ -85,7 +85,12 @@
                             </div>
                             <ul class="list-inline mb-5">
                                 @csrf
-                                <li class="list-inline-item"><button type="submit" class="mb-1 btn btn-dark btn-lg cart-add" id="{{$product[0]['id']}}"><i class="fa fa-shopping-cart mr-2"></i>Add to Cart </button></li>
+                                <li class="list-inline-item">
+                                    @if((int)$product[0]['status'] == 4)
+                                    <button type="submit"  class="mb-1 btn btn-dark btn-lg cart-add" id="{{$product[0]['id']}}" disabled><i class="fa fa-shopping-cart mr-2"></i>Добавить в покупки</button></li>
+                                    @else
+                                    <button type="submit"  class="mb-1 btn btn-dark btn-lg cart-add" id="{{$product[0]['id']}}"><i class="fa fa-shopping-cart mr-2"></i>Добавить в покупки</button></li>
+                                    @endif
                                 <!-- <li class="list-inline-item"><a href="#" class="mb-1 btn btn-outline-secondary"><i class="far fa-heart mr-2"></i>Add to wishlist</a></li> -->
                             </ul>
                             <ul class="list-unstyled">
@@ -101,14 +106,14 @@
     <section class="mt-5">
         <div class="container">
             <ul class="flex-column flex-sm-row nav nav-tabs">
-                <li class="nav-item"><a class="detail-nav-link active nav-link">Description</a></li>
-                <li class="nav-item"><a class="detail-nav-link nav-link">Additional Information</a></li>
+                <li class="nav-item"><a class="detail-nav-link active nav-link">Описание</a></li>
+                <li class="nav-item"><a class="detail-nav-link nav-link">Дополнительная информация</a></li>
             </ul>
             <div class="tab-content py-4">
                 <div class="tab-pane px-3 active">
                     <div class="row">
                         <div class="col-md-7 col-xl-8">
-                            <h5>About</h5>
+                            <h5>Информация</h5>
                             <p class='text-muted'>Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
                             <p class='text-muted'>He must have tried it a hundred times, shut his eyes so that he wouldn't have to look at the floundering legs, and only stopped when he began to feel a mild, dull pain there that he had never felt before.</p>
                             <h5>You will love</h5>

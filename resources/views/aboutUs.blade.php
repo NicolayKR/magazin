@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="row">
                     <div class="text-white col-xl-6">
-                        <h6 class="text-uppercase text-white letter-spacing-5 mb-3">About us</h6>
+                        <h6 class="text-uppercase text-white letter-spacing-5 mb-3">О нас</h6>
                         <h1 class="display-3 font-weight-bold text-shadow mb-5">We are Sell</h1>
                         <p class="text-lg">One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections</p>
                     </div>
