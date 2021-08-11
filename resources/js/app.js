@@ -15,6 +15,7 @@ Vue.component('blog-card', require('./components/blog-card.vue').default);
 Vue.component('basket-modal', require('./components/basket-modal').default);
 Vue.component('basket', require('./components/basket').default);
 Vue.component('add-item', require('./components/add-item').default);
+Vue.component('card-product', require('./components/card-product').default);
 
 new Vue({
     el: '#app',

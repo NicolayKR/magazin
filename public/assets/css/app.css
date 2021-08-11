@@ -36457,3 +36457,7 @@ img.emoji {
 :root {
   --swiper-theme-color: white !important;
 }
+
+.height-modal-button {
+  max-height: 50px;
+}

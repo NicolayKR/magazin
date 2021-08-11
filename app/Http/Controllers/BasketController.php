@@ -40,7 +40,7 @@ class BasketController extends Controller
         }
         if($order->clothes->contains($id)){
             $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
-            $pivotRow->count++;
+            $pivotRow->count = $pivotRow->count+$quant;
             $pivotRow->update();
             return redirect()->route('basket');
         }else{

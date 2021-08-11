@@ -1,7 +1,7 @@
 <template>
 <div v-if="!this.flagError">
     Автор: <a class="text-muted font-weight-bold" :href="`/blog/${this.collection.id}`">{{this.blog_data[0].author}}</a><span class="mx-1">|</span><span class="date-format-blog">{{getMonth(this.collection.date)}}
-    <!-- --> в </span><a class="font-weight-bold" href="/getDataBlogs">Блоги</a>
+    <!-- --> в </span><a class="font-weight-bold" href="/blog">Блоги</a>
 </div>
 </template>
 

@@ -9,10 +9,7 @@
                     </div>
                     <div class="product-hover-overlay"><a class="product-hover-overlay-link" :href="`/card-product/${item_data.id}`"></a>
                         <div class="product-hover-overlay-buttons d-flex"> 
-                            <form class="" :action="`/card-product/${item_data.id}`" method="get">
-                                <button type="submit" class="btn btn-outline-dark btn-product-left cart-add"><i class="fa fa-shopping-cart"></i></button>
-                                <input type="hidden" name="_token" :value="csrf">
-                            </form>
+                            <a class="btn btn-outline-dark btn-product-left cart-add" :href="`/card-product/${item_data.id}`"><i class="fa fa-shopping-cart"></i></a> 
                             <a class="btn btn-dark btn-buy" :href="`/card-product/${item_data.id}`"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">Вперед</span></a>
                         </div>
                     </div>
@@ -33,17 +30,23 @@ export default {
     data(){
         return{
             new_data:[],
-            flagError: false,
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            flagError: true,
             }
     },
     mounted(){
         this.getDataNew();
     },
+    watch:{
+        flagError(){
+            if(this.flagError == false){
+                this.itsOkey();
+            }
+        }
+    },
     methods:{      
         async getDataNew() {
             try{
-            const response = await axios.get('/getDataNew')  
+                const response = await axios.get('/getDataNew')  
                 this.new_data = response.data;
                 this.flagError = false;
                 }
@@ -51,9 +54,12 @@ export default {
                     this.flagError = true;
                 }                
         },
-        submit : function(){
-            this.$refs.form.submit();
-            },    
+        // submit : function(){
+        //     this.$refs.form.submit();
+        //     },  
+        itsOkey() {
+            this.$emit('okey', {okey: this.flagError});
+        }  
     }
 }
 </script>

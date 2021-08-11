@@ -65,41 +65,16 @@ Route::get('/slider', function () {
     return view('test');
 });
 Route::get('/test', function () {
-    // $id = 1;
-    // $quant = 2;
-    // $orderId = session('orderId');
-    // if(is_null($orderId)){
-    //     $order = Order::create();
-    //     session(['orderId'=> $order->id]);
-    // }else{
-    //     $order = Order::find($orderId);
-    // }
-    // if($order->clothes->contains($id)){
-    //     $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
-    //     $pivotRow->count++;
-    //     $pivotRow->update();
-    //     return redirect()->route('basket');
-    // }else{
-    //     $order->clothes()->attach($id); 
-    //     $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
-    //     if($quant > 1){
-    //         $pivotRow->count = $quant;
-    //     }
-    //     else{
-    //         $pivotRow->count = 1;
-    //     }
-    //     $pivotRow->update();
-    // }
-    // return "okey";
-   // return $order->clothes->contains(1);
-    // for($i=1; $i<4; $i++){
-    //     $current_status = rand(2, 5);
-    //     $newObject = tableimg::create(array(
-    //         'id_product'=>1,
-    //         'img_path'=> '/assets/img/'.$current_status.'.jpg'
-    //     ));
-    //     $newObject->save();
-    // }
+    for($j=1; $j<30;$j++){
+        for($i=1; $i<4; $i++){
+            $current_status = rand(2, 5);
+            $newObject = tableimg::create(array(
+                'id_product'=>$j,
+                'img_path'=> '/assets/img/'.$current_status.'.jpg'
+            ));
+            $newObject->save();
+        }
+    }
     // $collection = clothes::select('category', 'name', 'price', 'img_path')->get();
     // for($i=2; $i<11; $i++){
     //     $newObject = Blog::create(array(

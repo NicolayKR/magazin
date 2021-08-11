@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="app">
-        <blog-card />
+        <card-product :index_data="1"/>
     </div>
 </body>
 </html>

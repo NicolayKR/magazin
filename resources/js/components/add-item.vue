@@ -30,7 +30,7 @@
                     <nav class="" aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center no-border mb-0">
                             <li class="breadcrumb-item"><a class="" href="/">Главная</a></li>
-                            <li class="breadcrumb-item"><a class="" href="/category">Каталог</a></li>
+                            <li class="breadcrumb-item"><a class="" href="/catalog">Каталог</a></li>
                             <li class="active breadcrumb-item" aria-current="page">{{this.item_data.name}}</li>
                         </ol>
                     </nav>
@@ -112,15 +112,22 @@ export default {
             item_data: [],
             flagError: true,
             slider_img: null,
+            flagCount: 0,
             }
     },
     mounted(){
         this.getItemData();
     },
+    watch:{
+        flagCount(){
+            this.BasketChange();
+        }
+    },
     methods:{      
         minusQ(){
             if(this.countQ != 1){
                 this.countQ--;
+                
             }
         },
         plusQ(){
@@ -137,30 +144,19 @@ export default {
                 this.flagError = true;
             }     
         },
-        async removeItem(a){
-            try{
-                const response = await axios.get(`/remove-to-cart?&item=${a}`)  
-                this.getBasket();
-            }
-            catch{
-                }     
-        },
-        async removeAllItem(a){
-            try{
-                const response = await axios.get(`/remove-all-cart?&item=${a}`)  
-                this.getBasket();
-            }
-            catch{
-            }     
-        },
         async addItem(a){
             try{
                 const response = await axios.get(`/add-to-cart?&item=${a}&quant=${this.countQ}`);
+               // console.log(this.countQ);
+                this.flagCount++;
             }
             catch{
                
             }     
         },
+        BasketChange() {
+            this.$emit('BasketChange', {flagCount: this.flagCount});
+        }  
     }
 }
 </script>
