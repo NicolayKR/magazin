@@ -11,6 +11,7 @@ class BasketController extends Controller
 {
     public function basketData(){
         $orderId = session('orderId');
+        date_default_timezone_set("Europe/Moscow");
         if(!is_null($orderId)){
             $order = Order::findOrFail($orderId);
         }else{
@@ -29,6 +30,7 @@ class BasketController extends Controller
     }
     public function addToCart(Request $request)
     {
+        date_default_timezone_set("Europe/Moscow");
         $id = (int)$request->query('item');
         $quant = (int)$request->query('quant');
         $orderId = session('orderId');

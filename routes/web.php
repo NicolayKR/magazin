@@ -65,16 +65,18 @@ Route::get('/slider', function () {
     return view('test');
 });
 Route::get('/test', function () {
-    for($j=1; $j<30;$j++){
-        for($i=1; $i<4; $i++){
-            $current_status = rand(2, 5);
-            $newObject = tableimg::create(array(
-                'id_product'=>$j,
-                'img_path'=> '/assets/img/'.$current_status.'.jpg'
-            ));
-            $newObject->save();
-        }
-    }
+    Order::where('status', 0)->whereRaw('updated_at < DATE_SUB(DATE(NOW()), INTERVAL 5 DAY)')->whereRaw('created_at < DATE_SUB(DATE(NOW()), INTERVAL 5 DAY)')->delete();
+    DB::table('clothes_order')->whereRaw('updated_at < DATE_SUB(DATE(NOW()), INTERVAL 5 DAY)')->whereRaw('created_at < DATE_SUB(DATE(NOW()), INTERVAL 5 DAY)')->delete();
+    // for($j=1; $j<30;$j++){
+    //     for($i=1; $i<4; $i++){
+    //         $current_status = rand(2, 5);
+    //         $newObject = tableimg::create(array(
+    //             'id_product'=>$j,
+    //             'img_path'=> '/assets/img/'.$current_status.'.jpg'
+    //         ));
+    //         $newObject->save();
+    //     }
+    // }
     // $collection = clothes::select('category', 'name', 'price', 'img_path')->get();
     // for($i=2; $i<11; $i++){
     //     $newObject = Blog::create(array(
