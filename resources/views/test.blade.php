@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="app">
-         <blog-card/>
+        <blog-card />
     </div>
 </body>
 </html>

@@ -18,7 +18,7 @@
         </div>
     </section>
     <div class="container">
-        <basket :basket="{{$order->clothes}}"/>      
+        <basket/>      
     </div>
 </main>
 @endsection

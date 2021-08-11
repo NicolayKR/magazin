@@ -40,16 +40,19 @@ Route::get('/catalog', function () {
 Route::get('/card-product', function () {
     return view('productCard');
 })->name('card-product');
-
+Route::get('/basket', function () {
+    return view('basket');
+})->name('basket');
 Route::get('/getDataSlider','App\Http\Controllers\DataController@getDataSlider');
 Route::get('/getDataNew','App\Http\Controllers\DataController@getDataNew');
 Route::get('/getDataBlogs', 'App\Http\Controllers\DataController@getDataBlogs');
 Route::get('/getDataCatalog', 'App\Http\Controllers\DataController@getDataCatalog');
 Route::get('/card-product/{id}', 'App\Http\Controllers\DataController@getCardProduct');
+Route::get('/getCardData', 'App\Http\Controllers\DataController@getCardData');
 Route::get('/blog/{id}', 'App\Http\Controllers\DataController@getBlog');
-Route::get('/basket', 'App\Http\Controllers\BasketController@basket')->name('basket');
-Route::post('/add-to-cart', 'App\Http\Controllers\BasketController@addToCart')->name('addToCart');
-Route::post('/remove-to-cart', 'App\Http\Controllers\BasketController@removeToCart')->name('removeToCart');
+Route::get('/basketData', 'App\Http\Controllers\BasketController@basketData')->name('basketData');
+Route::get('/add-to-cart', 'App\Http\Controllers\BasketController@addToCart')->name('addToCart');
+Route::get('/remove-to-cart', 'App\Http\Controllers\BasketController@removeToCart')->name('removeToCart');
 Route::get('/remove-all-cart', 'App\Http\Controllers\BasketController@removeAllCart')->name('removeAllCart');
 Route::get('/basket-place', 'App\Http\Controllers\BasketController@BasketPlace')->name('BasketPlace');
 Route::post('/basket-confirm', 'App\Http\Controllers\BasketController@BasketConfirm')->name('BasketConfirm');
@@ -62,25 +65,32 @@ Route::get('/slider', function () {
     return view('test');
 });
 Route::get('/test', function () {
-    // $id = 8;
+    // $id = 1;
+    // $quant = 2;
     // $orderId = session('orderId');
     // if(is_null($orderId)){
+    //     $order = Order::create();
+    //     session(['orderId'=> $order->id]);
+    // }else{
+    //     $order = Order::find($orderId);
+    // }
+    // if($order->clothes->contains($id)){
+    //     $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
+    //     $pivotRow->count++;
+    //     $pivotRow->update();
     //     return redirect()->route('basket');
+    // }else{
+    //     $order->clothes()->attach($id); 
+    //     $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
+    //     if($quant > 1){
+    //         $pivotRow->count = $quant;
+    //     }
+    //     else{
+    //         $pivotRow->count = 1;
+    //     }
+    //     $pivotRow->update();
     // }
-    // $order = Order::find($orderId);
-    // $order->clothes()->detach($id); 
-    // $orderId = session('orderId'); 
-    // $order = Order::find($orderId); 
-    // $array = $order->clothes;
-    // foreach($array as $item){
-    //     if($item->)
-    // }
-    // if($order->clothes->contains(1)){
-    //     return 1;
-    // }
-    // else{
-    //     return 0;
-    // }
+    // return "okey";
    // return $order->clothes->contains(1);
     // for($i=1; $i<4; $i++){
     //     $current_status = rand(2, 5);

@@ -42,7 +42,9 @@
                                     <li class="nav-item"><a href="/about" class="nav-link">О нас</a></li>
                                     <li class="nav-item"><a href="/contact" class="nav-link">Контакты</a></li>
                                 </ul>
-                                <basket-modal/>           
+                                @if(Route::currentRouteName() != 'basket') 
+                                <basket-modal/>    
+                                @endif       
                             </div>
                         </div>
                     </nav>

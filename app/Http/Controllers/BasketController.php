@@ -9,14 +9,14 @@ use App\Models\Order;
 
 class BasketController extends Controller
 {
-    public function basket(){
+    public function basketData(){
         $orderId = session('orderId');
         if(!is_null($orderId)){
             $order = Order::findOrFail($orderId);
         }else{
             $order = null;
         }
-        return $order;
+        return $order->clothes;
     }
     public function modalBasket(){
         $orderId = session('orderId');
@@ -27,9 +27,10 @@ class BasketController extends Controller
         }
         return $order->clothes;
     }
-    public function addToCart($productId, Request $request)
+    public function addToCart(Request $request)
     {
-        $flag = false;
+        $id = (int)$request->query('item');
+        $quant = (int)$request->query('quant');
         $orderId = session('orderId');
         if(is_null($orderId)){
             $order = Order::create();
@@ -37,29 +38,28 @@ class BasketController extends Controller
         }else{
             $order = Order::find($orderId);
         }
-        if($order->clothes->contains($productId)){
-            $pivotRow = $order->clothes()->where('clothes_id', $productId)->first()->pivot;
+        if($order->clothes->contains($id)){
+            $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
             $pivotRow->count++;
             $pivotRow->update();
             return redirect()->route('basket');
         }else{
-            $order->clothes()->attach($productId); 
-            $pivotRow = $order->clothes()->where('clothes_id', $productId)->first()->pivot;
-            if($request->quant){
-                $pivotRow->count = $request->quant;
+            $order->clothes()->attach($id); 
+            $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
+            if($quant > 1){
+                $pivotRow->count = $quant;
             }
             else{
                 $pivotRow->count = 1;
             }
             $pivotRow->update();
-            return redirect()->route('basket');
         }
     }
     public function removeToCart(Request $request){
         $id = $request->query('item');
         $orderId = session('orderId');
         $order = Order::find($orderId);
-        if($order->clothes->contains($productId)){
+        if($order->clothes->contains($id)){
             $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
             if($pivotRow->count < 2){
                 $order->clothes()->detach($id); 

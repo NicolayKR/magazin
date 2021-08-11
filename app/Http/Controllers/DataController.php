@@ -43,6 +43,18 @@ class DataController extends Controller
             'product' => $product
         ]);
     }
+    public function getCardData(Request $request){
+        $id = $request->query('item');
+        $product = clothes::select('id','category', 'name', 'price', 'img_path','status','reviews','old_price','description','tags')->where('id', $id)->get()->toArray();
+        $img_collection = tableimg::select('img_path')->where('id_product', $id)->get();
+        $img_array = [];
+        $final_array = [];
+        foreach($img_collection as $item){
+            $img_array[] = $item['img_path'];
+        }
+        $product[0]['img_slider'][] = $img_array;
+        return $product;
+    }
     public function getBlog($id){
         $result = Blog::select(Blog::raw('COUNT(*)'))->where('id',$id)->count(); 
         if($result == 1) {

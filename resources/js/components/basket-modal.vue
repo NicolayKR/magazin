@@ -49,7 +49,6 @@ export default {
             try{
                 const response = await axios.get('/basket-count')  
                 this.basket_count = response.data;
-                console.log(this.basket_count)
                 if(Number(this.basket_count) > 0){
                     this.buy_flag = true;
                     }
