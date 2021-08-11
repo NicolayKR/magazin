@@ -67,9 +67,11 @@ window.addEventListener('DOMContentLoaded', () => {
 	// });
 	$(window).click(function(event){
 		if($(event.target).attr('id')=='cart' || $(event.target).attr('id')=='index-cart'){	
+            event.preventDefault();
 			$('#basket-modal').toggleClass('show');
 		}else{
 			if($('#basket-modal').hasClass('show')){
+                event.preventDefault();
 				$('#basket-modal').removeClass('show');
 		   }
 		}

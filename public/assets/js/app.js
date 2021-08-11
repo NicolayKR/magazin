@@ -6890,9 +6890,11 @@ window.addEventListener('DOMContentLoaded', function () {
 
   $(window).click(function (event) {
     if ($(event.target).attr('id') == 'cart' || $(event.target).attr('id') == 'index-cart') {
+      event.preventDefault();
       $('#basket-modal').toggleClass('show');
     } else {
       if ($('#basket-modal').hasClass('show')) {
+        event.preventDefault();
         $('#basket-modal').removeClass('show');
       }
     }
@@ -45375,7 +45377,7 @@ var render = function() {
       _c("div", { staticClass: "nav-item" }, [
         _c("a", {
           staticClass: "navbar-icon-link d-lg-none",
-          attrs: { href: "/cart" }
+          attrs: { href: "#" }
         }),
         _vm._v(" "),
         _c("div", { staticClass: "d-lg-block" }, [
@@ -47860,12 +47862,11 @@ var render = function() {
                 }
               },
               _vm._l(_vm.slider_data, function(item_data) {
-                return _c(
-                  "custom-component",
-                  { key: item_data.id, staticClass: "slider-component" },
-                  [_c("sliderItem", { attrs: { item_data: item_data } })],
-                  1
-                )
+                return _c("sliderItem", {
+                  key: item_data.id,
+                  staticClass: "slider-component",
+                  attrs: { item_data: item_data }
+                })
               }),
               1
             )

@@ -13,9 +13,9 @@
                         { number: 3, min: 778 },
                         { number: 5, min: 1100 },
                     ]}">
-                <custom-component v-for="item_data in slider_data" :key="item_data.id" class="slider-component">
-                    <sliderItem :item_data="item_data"></sliderItem>
-                </custom-component>
+               
+                    <sliderItem v-for="item_data in slider_data" :key="item_data.id" class="slider-component" :item_data="item_data"></sliderItem>
+        
             </slither-slider>
         </div>
     </div>
