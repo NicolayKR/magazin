@@ -67,42 +67,42 @@ Route::get('/slider', function () {
 Route::get('/test', function () {
     Order::where('status', 0)->whereRaw('updated_at < DATE_SUB(DATE(NOW()), INTERVAL 5 DAY)')->whereRaw('created_at < DATE_SUB(DATE(NOW()), INTERVAL 5 DAY)')->delete();
     DB::table('clothes_order')->whereRaw('updated_at < DATE_SUB(DATE(NOW()), INTERVAL 5 DAY)')->whereRaw('created_at < DATE_SUB(DATE(NOW()), INTERVAL 5 DAY)')->delete();
-    // for($j=1; $j<30;$j++){
-    //     for($i=1; $i<4; $i++){
-    //         $current_status = rand(2, 5);
-    //         $newObject = tableimg::create(array(
-    //             'id_product'=>$j,
-    //             'img_path'=> '/assets/img/'.$current_status.'.jpg'
-    //         ));
-    //         $newObject->save();
-    //     }
-    // }
-    // $collection = clothes::select('category', 'name', 'price', 'img_path')->get();
-    // for($i=2; $i<11; $i++){
-    //     $newObject = Blog::create(array(
-    //         'author'=>'Коля Крючков',
-    //         'topic' => 'Новая тема',
-    //         'title'=> 'Что происходит в мире?',
-    //         'text'=> 'Мне бегом делать прививки!',
-    //         'img_path'=> '/assets/img/'.$i.'.jpg'
-    //     ));
-    //     $newObject->save();
-    // }
-    // for($i=1; $i<50; $i++){
-    //     $current_status = rand(1, 4);
-    //     $newObject = clothes::create(array(
-    //         'category' => 'Футболка',
-    //         'name'=> 'Футболка с тигром',
-    //         'price' => 20.00,
-    //         'img_path'=> '/assets/img/2.jpg',
-    //         'status'=> $current_status,
-    //         'reviews'=> 0,
-    //         'old_price'=>40.00,
-    //         'description'=>"Описание",
-    //         'tags'=>'Летняя'
-    //     ));
-    //     $newObject->save();
-    // }
+    for($j=1; $j<30;$j++){
+        for($i=1; $i<4; $i++){
+            $current_status = rand(2, 5);
+            $newObject = tableimg::create(array(
+                'id_product'=>$j,
+                'img_path'=> '/assets/img/'.$current_status.'.jpg'
+            ));
+            $newObject->save();
+        }
+    }
+    $collection = clothes::select('category', 'name', 'price', 'img_path')->get();
+    for($i=2; $i<11; $i++){
+        $newObject = Blog::create(array(
+            'author'=>'Коля Крючков',
+            'topic' => 'Новая тема',
+            'title'=> 'Что происходит в мире?',
+            'text'=> 'Мне бегом делать прививки!',
+            'img_path'=> '/assets/img/'.$i.'.jpg'
+        ));
+        $newObject->save();
+    }
+    for($i=1; $i<50; $i++){
+        $current_status = rand(1, 4);
+        $newObject = clothes::create(array(
+            'category' => 'Футболка',
+            'name'=> 'Футболка с тигром',
+            'price' => 20.00,
+            'img_path'=> '/assets/img/2.jpg',
+            'status'=> $current_status,
+            'reviews'=> 0,
+            'old_price'=>40.00,
+            'description'=>"Описание",
+            'tags'=>'Летняя'
+        ));
+        $newObject->save();
+    }
 });
 
 Auth::routes();
