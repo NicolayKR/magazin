@@ -12,7 +12,7 @@
                             <div class="d-flex align-items-center"><a :href="`/card-product/${basket_item.id}`"><img class="img-fluid navbar-cart-product-image" :src="basket_item.img_path" alt="..." /></a>
                                 <div class="w-100">
                                     <button type="button" class="close text-sm mr-2" @click="removeItem(basket_item.id)" href="#"><i class="fa fa-times"></i></button>
-                                    <div class="pl-3"><a class="navbar-cart-product-link" :href="`'/card-product/${basket_item.id}`">{{basket_item.name}}</a><small class="d-block text-muted">Количество:
+                                    <div class="pl-3"><a class="navbar-cart-product-link" :href="`/card-product/${basket_item.id}`">{{basket_item.name}}</a><small class="d-block text-muted">Количество:
                                             {{basket_item.pivot.count}}
                                         </small><strong class="d-block text-sm">$
                                             {{basket_item.price}}

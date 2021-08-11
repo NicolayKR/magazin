@@ -45452,7 +45452,7 @@ var render = function() {
                                   {
                                     staticClass: "navbar-cart-product-link",
                                     attrs: {
-                                      href: "'/card-product/" + basket_item.id
+                                      href: "/card-product/" + basket_item.id
                                     }
                                   },
                                   [_vm._v(_vm._s(basket_item.name))]
