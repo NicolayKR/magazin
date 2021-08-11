@@ -45527,7 +45527,7 @@ var render = function() {
                   [
                     _vm._m(0),
                     _vm._v(" "),
-                    _c("a", { attrs: { href: "basket-place" } }, [
+                    _c("a", { attrs: { href: "/basket-place" } }, [
                       this.buy_flag == true
                         ? _c(
                             "button",

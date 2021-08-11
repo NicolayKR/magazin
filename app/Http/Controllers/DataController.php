@@ -29,8 +29,12 @@ class DataController extends Controller
     }
     public function getCardProduct($id){
         $index = clothes::select('reviews')->where('id',$id)->get();
-        $current_index = $index[0]->reviews + 1;
-        clothes::where('id',$id)->update(array('reviews'=>$current_index));
+        if($index[0]){
+            $current_index = $index[0]->reviews + 1;
+            clothes::where('id',$id)->update(array('reviews'=>$current_index));
+        }else{
+            clothes::where('id',$id)->update(array('reviews'=>1)); 
+        }
         $product = clothes::select('id','category', 'name', 'price', 'img_path','status','reviews','old_price','description','tags')->where('id', $id)->get()->toArray();
         $img_collection = tableimg::select('img_path')->where('id_product', $id)->get();
         $img_array = [];
