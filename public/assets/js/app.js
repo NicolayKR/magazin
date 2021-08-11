@@ -5349,6 +5349,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         sum = sum + Number(element.price) * Number(element.pivot.count);
       });
       return sum;
+    },
+    goRoute: function goRoute(a) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return axios.get(a);
+
+              case 2:
+                response = _context4.sent;
+
+              case 3:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
     }
   }
 });
@@ -45506,23 +45527,22 @@ var render = function() {
                   [
                     _vm._m(0),
                     _vm._v(" "),
-                    this.buy_flag
-                      ? _c(
-                          "a",
-                          {
-                            staticClass: "btn btn-outline-dark",
-                            attrs: { href: "/basket-place" }
-                          },
-                          [_vm._v("Купить")]
-                        )
-                      : _vm._e(),
+                    _c("a", { attrs: { href: "basket-place" } }, [
+                      this.buy_flag == true
+                        ? _c(
+                            "button",
+                            { staticClass: "btn btn-outline-dark" },
+                            [_vm._v("Купить")]
+                          )
+                        : _vm._e()
+                    ]),
                     _vm._v(" "),
-                    !this.buy_flag
+                    this.buy_flag == false
                       ? _c(
-                          "a",
+                          "button",
                           {
                             staticClass: "btn btn-outline-dark",
-                            attrs: { href: "/basket-place", disabled: "" }
+                            attrs: { disabled: "" }
                           },
                           [_vm._v("Купить")]
                         )

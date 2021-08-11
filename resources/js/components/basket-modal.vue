@@ -23,8 +23,8 @@
                     </div>
                     <div class="navbar-cart-total"><span class="text-uppercase text-muted">Цена</span><strong class="text-uppercase">${{getFullPrice()}}</strong></div>
                     <div class="d-flex justify-content-between height-modal-button"><a class="btn btn-link text-dark mr-3" href="/basket">В корзину<i class="fa-arrow-right fa"></i></a>
-                    <a v-if="this.buy_flag" class="btn btn-outline-dark" href="/basket-place">Купить</a>
-                    <a v-if="!this.buy_flag" class="btn btn-outline-dark" href="/basket-place" disabled>Купить</a>
+                        <a href="basket-place"><button v-if="this.buy_flag==true" class="btn btn-outline-dark" >Купить</button></a>
+                        <button v-if="this.buy_flag==false" class="btn btn-outline-dark" disabled>Купить</button>
                     </div>
                 </div>
             </div>
@@ -57,9 +57,11 @@ export default {
                 this.basket_count = response.data;
                 if(Number(this.basket_count) > 0){
                     this.buy_flag = true;
+        
                     }
                 else{
                     this.buy_flag = false;
+                   
                     }
                 }
             catch{
@@ -90,6 +92,9 @@ export default {
                 sum = sum+ (Number(element.price)*Number(element.pivot.count));
             });
             return sum;
+        }, 
+        async goRoute(a){
+            const response = await axios.get(a);
         }
     }
 }
