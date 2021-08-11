@@ -88,10 +88,10 @@
             <div class="block-body bg-light pt-1">
                 <p class="text-sm">Стоимость доставки и дополнительные расходы рассчитываются на основе введенных вами значений.</p>
                 <ul class="order-summary mb-0 list-unstyled">
-                    <li class="order-summary-item"><span>Сумма заказа</span><span>{{getFullPrice()}}</span></li>
+                    <li class="order-summary-item"><span>Сумма заказа</span><span>${{getFullPrice()}}</span></li>
                     <li class="order-summary-item"><span>Доставка</span><span>$0.00</span></li>
                     <li class="order-summary-item"><span>Налог</span><span>$0.00</span></li>
-                    <li class="order-summary-item border-0"><span>Итого</span><strong class="order-summary-total">{{getFullPrice()}}</strong></li>
+                    <li class="order-summary-item border-0"><span>Итого</span><strong class="order-summary-total">${{getFullPrice()}}</strong></li>
                 </ul>
             </div>
         </div>

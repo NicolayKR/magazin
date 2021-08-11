@@ -45872,7 +45872,7 @@ var render = function() {
               _c("ul", { staticClass: "order-summary mb-0 list-unstyled" }, [
                 _c("li", { staticClass: "order-summary-item" }, [
                   _c("span", [_vm._v("Сумма заказа")]),
-                  _c("span", [_vm._v(_vm._s(_vm.getFullPrice()))])
+                  _c("span", [_vm._v("$" + _vm._s(_vm.getFullPrice()))])
                 ]),
                 _vm._v(" "),
                 _vm._m(6),
@@ -45882,7 +45882,7 @@ var render = function() {
                 _c("li", { staticClass: "order-summary-item border-0" }, [
                   _c("span", [_vm._v("Итого")]),
                   _c("strong", { staticClass: "order-summary-total" }, [
-                    _vm._v(_vm._s(_vm.getFullPrice()))
+                    _vm._v("$" + _vm._s(_vm.getFullPrice()))
                   ])
                 ])
               ])

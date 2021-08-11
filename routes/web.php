@@ -65,8 +65,6 @@ Route::get('/slider', function () {
     return view('test');
 });
 Route::get('/test', function () {
-    Order::where('status', 0)->whereRaw('updated_at < DATE_SUB(DATE(NOW()), INTERVAL 5 DAY)')->whereRaw('created_at < DATE_SUB(DATE(NOW()), INTERVAL 5 DAY)')->delete();
-    DB::table('clothes_order')->whereRaw('updated_at < DATE_SUB(DATE(NOW()), INTERVAL 5 DAY)')->whereRaw('created_at < DATE_SUB(DATE(NOW()), INTERVAL 5 DAY)')->delete();
     for($j=1; $j<30;$j++){
         for($i=1; $i<4; $i++){
             $current_status = rand(2, 5);
