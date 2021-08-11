@@ -33036,6 +33036,10 @@ body {
   padding: 0;
 }
 
+.show {
+  transition: height 1.3s ease-in-out;
+}
+
 .navbar-cart-product .navbar-cart-product-link:hover {
   background: none;
   text-decoration: none;
@@ -33068,6 +33072,7 @@ body {
   bottom: 0;
   z-index: 1040;
   min-height: 100vh;
+  transition-duration: 1500ms;
 }
 
 .navbar-collapse-fullscreen.collapsing {
@@ -36459,5 +36464,5 @@ img.emoji {
 }
 
 .height-modal-button {
-  max-height: 50px;
+  max-height: 40px;
 }

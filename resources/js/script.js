@@ -74,4 +74,12 @@ window.addEventListener('DOMContentLoaded', () => {
 		   }
 		}
 	});
+    $('#hamberger').click(function(){
+        $('#hide-menu').toggleClass('show');
+        // if($('#hide-menu').hasClass('show')){
+        //     $('#hide-menu').removeClass('collapse').removeClass('show').removeClass('navbar-collapse').addClass('collapse').addClass('navbar-collapse');
+        // }else{
+        //     $('#hide-menu').removeClass('collapse').removeClass('navbar-collapse').addClass('collapse').addClass('show').addClass('navbar-collapse');
+        // }
+    })
 });

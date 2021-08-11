@@ -4451,7 +4451,7 @@ input[type=submit].btn-block {
 }
 
 .dropdown-menu.show {
-    display: block
+    display: block;
 }
 
 .dropdown-header {
@@ -14517,7 +14517,12 @@ a.text-gray-900:hover {
     color: #343a40;
     padding: 0
 }
-
+.show{
+    -webkit-transition: height 1.3s ease-in-out;
+    -o-transition: height 1.3s ease-in-out;
+    -moz-transition: height 1.3s ease-in-out;
+    transition: height 1.3s ease-in-out;
+}
 .navbar-cart-product .navbar-cart-product-link:hover {
     background: none;
     text-decoration: none
@@ -14541,7 +14546,6 @@ a.text-gray-900:hover {
 .navbar-fullscreen.fixed-top {
     position: fixed
 }
-
 .navbar-collapse-fullscreen.collapse.show {
     position: fixed;
     right: 0;
@@ -14549,7 +14553,8 @@ a.text-gray-900:hover {
     top: 0;
     bottom: 0;
     z-index: 1040;
-    min-height: 100vh
+    min-height: 100vh;
+    transition-duration: 1500ms;
 }
 
 .navbar-collapse-fullscreen.collapsing {
@@ -17962,7 +17967,7 @@ img.emoji {
 --swiper-theme-color: white !important;
 }
 .height-modal-button{
-    max-height: 50px;
+    max-height: 40px;
 }
 
 

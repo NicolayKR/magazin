@@ -1,7 +1,7 @@
 <template>
 <div class="d-flex align-items-center justify-content-between justify-content-lg-end mt-1 mb-2 my-lg-0">
     <div class="nav-item"><a class="navbar-icon-link d-lg-none" href="/cart"></a>
-        <div class="d-none d-lg-block">  
+        <div class="d-lg-block">  
             <div class="dropdown"><a href="#" aria-haspopup="true" class="navbar-icon-link" aria-expanded="false" id="basket">
                 <i class="fas fa-shopping-cart" id="cart"></i>
                 <span class="navbar-icon-link-badge cart-index" id="index-cart">{{this.basket_count}}</span>

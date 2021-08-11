@@ -6876,6 +6876,13 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     }
   });
+  $('#hamberger').click(function () {
+    $('#hide-menu').toggleClass('show'); // if($('#hide-menu').hasClass('show')){
+    //     $('#hide-menu').removeClass('collapse').removeClass('show').removeClass('navbar-collapse').addClass('collapse').addClass('navbar-collapse');
+    // }else{
+    //     $('#hide-menu').removeClass('collapse').removeClass('navbar-collapse').addClass('collapse').addClass('show').addClass('navbar-collapse');
+    // }
+  });
 });
 
 /***/ }),
@@ -45350,7 +45357,7 @@ var render = function() {
           attrs: { href: "/cart" }
         }),
         _vm._v(" "),
-        _c("div", { staticClass: "d-none d-lg-block" }, [
+        _c("div", { staticClass: "d-lg-block" }, [
           _c("div", { staticClass: "dropdown" }, [
             _c(
               "a",
