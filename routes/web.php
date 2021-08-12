@@ -61,6 +61,7 @@ Route::get('/finish-order', 'App\Http\Controllers\BasketController@finishOrder')
 Route::get('/basket-count', 'App\Http\Controllers\BasketController@BasketCount')->name('basket-count');
 Route::get('/modalBasket', 'App\Http\Controllers\BasketController@modalBasket')->name('modalBasket');
 Route::get('/getDataBlog', 'App\Http\Controllers\DataController@getDataBlog');
+Route::post('/postMail', 'App\Http\Controllers\DataController@postMail');
 Route::get('/slider', function () {
     return view('test');
 });

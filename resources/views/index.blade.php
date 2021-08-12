@@ -6,19 +6,19 @@
 <main>
     <div class="container-fluid">
         <div class="row">
-            <div style="background-image:url(assets/img/2.jpg);background-color:#d2cecb" class="dark-overlay split-screen-column align-items-center align-items-lg-end col-lg-6">
+            <div style="background-image:url(assets/img/main-img/1.jpg);background-color:#d2cecb" class="dark-overlay split-screen-column align-items-center align-items-lg-end col-lg-6">
                 <div class="overlay-content py-6 mt-6 px-lg-5 mt-lg-0 mb-lg-5">
-                    <h1 class="display-3 mb-4 text-white font-weight-bold split-screen-heading letter-spacing-1">Мужчинам</h1>
+                    <h1 class="display-3 mb-4 text-white font-weight-bold split-screen-heading letter-spacing-1">Gentlemen</h1>
                     <p class="lead mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <p><a class="btn btn-light mx-1 mb-1" href="/catalog">Посмотреть коллекцию</a><a class="btn btn-outline-light mx-1 mb-1" href="/category">Просмотр</a></p>
+                    <p><a class="btn btn-light mx-1 mb-1" href="/catalog">View collection</a><a class="btn btn-outline-light mx-1 mb-1" href="/category">See more</a></p>
                 </div>
             </div>
     
-            <div style="background-image:url(/assets/img/3.jpg);background-color:#e5b6b4" class="split-screen-column align-items-center align-items-lg-end col-lg-6">
+            <div style="background-image:url(/assets/img/main-img/2.jpg);background-color:#e5b6b4" class="split-screen-column align-items-center align-items-lg-end col-lg-6">
                 <div class="py-6 px-lg-5 mb-lg-5">
-                    <h1 class="display-3 mb-4 text-white font-weight-bold split-screen-heading letter-spacing-1">Женщинам</h1>
+                    <h1 class="display-3 mb-4 text-white font-weight-bold split-screen-heading letter-spacing-1">Ladies</h1>
                     <p class="lead mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <p><a class="btn btn-light mx-1 mb-1" href="/catalog">Посмотреть коллекцию</a><a class="btn btn-outline-light mx-1 mb-1" href="/category-full">Просмотр</a></p>
+                    <p><a class="btn btn-light mx-1 mb-1" href="/catalog">View collection</a><a class="btn btn-outline-light mx-1 mb-1" href="/category-full">See more</a></p>
                 </div>
             </div>
         </div>

@@ -3,7 +3,9 @@ require('./script');
 
 import Vue from "vue";
 import SlitherSlider from 'slither-slider';
+import VueRouter from 'vue-router';
 
+Vue.use(VueRouter)
 Vue.use(SlitherSlider);
 
 Vue.component('slider-component', require('./components/slider.vue').default);

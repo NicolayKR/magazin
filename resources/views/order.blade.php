@@ -41,15 +41,15 @@
                         </div>
                     </div>
                     <div class="collapse">
-                        <h3 class="my-4">Shipping address</h3>
+                        <h3 class="my-4">Введите данные</h3>
                         <div class="row">
-                            <div class="col-md-6 form-group"><label for="shipping_fullname_invoice" class="form-label">Full Name</label><input type="text" name="shipping_fullname_invoice" placeholder="Joe Black" id="shipping_fullname_invoice" value="" class="form-control" /></div>
-                            <div class="col-md-6 form-group"><label for="shipping_emailaddress_invoice" class="form-label">Email Address</label><input type="text" name="shipping_emailaddress_invoice" placeholder="joe.black@gmail.com" id="shipping_emailaddress_invoice" value="" class="form-control" /></div>
-                            <div class="col-md-6 form-group"><label for="shipping_street_invoice" class="form-label">Street</label><input type="text" name="shipping_street_invoice" placeholder="123 Main St." id="shipping_street_invoice" value="" class="form-control" /></div>
-                            <div class="col-md-6 form-group"><label for="shipping_city_invoice" class="form-label">City</label><input type="text" name="shipping_city_invoice" placeholder="City" id="shipping_city_invoice" value="" class="form-control" /></div>
-                            <div class="col-md-6 form-group"><label for="shipping_zip_invoice" class="form-label">ZIP</label><input type="text" name="shipping_zip_invoice" placeholder="Postal code" id="shipping_zip_invoice" value="" class="form-control" /></div>
-                            <div class="col-md-6 form-group"><label for="shipping_state_invoice" class="form-label">State</label><input type="text" name="shipping_state_invoice" placeholder="State" id="shipping_state_invoice" value="" class="form-control" /></div>
-                            <div class="col-md-6 form-group"><label for="shipping_phonenumber_invoice" class="form-label">Phone Number</label><input type="text" name="shipping_phonenumber_invoice" placeholder="Phone Number" id="shipping_phonenumber_invoice" value="" class="form-control" /></div>
+                            <div class="col-md-6 form-group"><label for="shipping_fullname_invoice" class="form-label">Полное имя</label><input type="text" name="shipping_fullname_invoice" placeholder="Полное имя" id="shipping_fullname_invoice" value="" class="form-control" /></div>
+                            <div class="col-md-6 form-group"><label for="shipping_emailaddress_invoice" class="form-label">Ваша почта</label><input type="text" name="shipping_emailaddress_invoice" placeholder="Ваша почта@gmail.com" id="shipping_emailaddress_invoice" value="" class="form-control" /></div>
+                            <div class="col-md-6 form-group"><label for="shipping_street_invoice" class="form-label">Улица</label><input type="text" name="shipping_street_invoice" placeholder="Название улицы" id="shipping_street_invoice" value="" class="form-control" /></div>
+                            <div class="col-md-6 form-group"><label for="shipping_city_invoice" class="form-label">Город</label><input type="text" name="shipping_city_invoice" placeholder="Город" id="shipping_city_invoice" value="" class="form-control" /></div>
+                            <div class="col-md-6 form-group"><label for="shipping_zip_invoice" class="form-label">Почтовый индекс</label><input type="text" name="shipping_zip_invoice" placeholder="Код почты" id="shipping_zip_invoice" value="" class="form-control" /></div>
+                    
+                            <div class="col-md-6 form-group"><label for="shipping_phonenumber_invoice" class="form-label">Номер телефона</label><input type="text" name="shipping_phonenumber_invoice" placeholder="Номер телефона" id="shipping_phonenumber_invoice" value="" class="form-control" /></div>
                         </div>
                     </div>
                     <div class="my-5 d-flex justify-content-between flex-column flex-lg-row"><a href="/basket" class="text-muted btn btn-link"><i class="fa fa-angle-left mr-2"></i>Назад</a>

@@ -6,7 +6,7 @@
 <main>
     <section class="mh-full-screen dark-overlay py-7 d-flex align-items-center justify-content-center">
         <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0">
-            <img alt="" src="assets/img/about.jpg" decoding="async" class="bg-image" sizes="100vw" srcset="assets/img/about.jpg, assets/img/about.jpg, assets/img/about.jpg, assets/img/about.jpg, assets/img/about.jpg" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"/>
+            <img alt="" src="assets/img/about.jpg" decoding="async" class="bg-image" sizes="100vw" srcset="/assets/img/main-img/3.jpg, /assets/img/main-img/3.jpg, /assets/img/main-img/3.jpg, /assets/img/main-img/3.jpg, /assets/img/main-img/3.jpg" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"/>
         </div>
         <div class="overlay-content w-100">
             <div class="container">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="p-lg-0 about-image-column col-lg-6">
-                    <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0"><img alt="" src="assets/img/8.jpg" decoding="async" class="bg-image" sizes="100vw" srcset="assets/img/8.jpg, assets/img/8.jpg, assets/img/8.jpg, assets/img/8.jpg, assets/img/8.jpg" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
+                    <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0"><img alt="" src="/assets/img/main-img/1.jpg" decoding="async" class="bg-image" sizes="100vw" srcset="/assets/img/main-img/1.jpg, /assets/img/main-img/1.jpg, /assets/img/main-img/1.jpg, /assets/img/main-img/1.jpg, /assets/img/main-img/1.jpg" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
                     </img></div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="p-lg-0 about-image-column order-lg-1 col-lg-6">
-                    <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0"><img alt="" src="assets/img/9.jpg" decoding="async" class="bg-image" sizes="100vw" srcset="assets/img/9.jpg, assets/img/9.jpg, assets/img/9.jpg, assets/img/9.jpg, assets/img/9.jpg" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
+                    <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0"><img alt="" src="/assets/img/main-img/2.jpg" decoding="async" class="bg-image" sizes="100vw" srcset="/assets/img/main-img/2.jpg, /assets/img/main-img/2.jpg, /assets/img/main-img/2.jpg, /assets/img/main-img/2.jpg, /assets/img/main-img/2.jpg, /assets/img/main-img/2.jpg" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
                     </img></div>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="p-lg-0 about-image-column col-lg-6">
-                    <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0"><img alt="" src="assets/img/10.jpg" decoding="async" class="bg-image" sizes="100vw" srcset="assets/img/10.jpg, assets/img/10.jpg, assets/img/10jpg, assets/img/10.jpg, assets/img/10.jpg" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
+                    <div style="display:block;overflow:hidden;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;margin:0"><img alt="" src="/assets/img/main-img/4.jpg" decoding="async" class="bg-image" sizes="100vw" srcset="/assets/img/main-img/4.jpg, assets/img/10.jpg/assets/img/main-img/4.jpg, /assets/img/main-img/4.jpg, /assets/img/main-img/4.jpg, /assets/img/main-img/4.jpg" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;">
                     </img>
                     </div>
                 </div>
@@ -103,13 +103,13 @@
                 <div class="d-flex align-items-center col-lg-6">
                     <div class="w-100">
                         <div style="display:block;overflow:hidden;position:relative;box-sizing:border-box;margin:0">
-                            <div style="display:block;box-sizing:border-box;padding-top:66.66666666666666%"></div><img alt="" src="assets/img/11.jpg" decoding="async" class="bg-image" sizes="100vw" srcset="assets/img/11.jpg, assets/img/11.jpg, assets/img/11jpg, assets/img/11.jpg, assets/img/11.jpg" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"/>
+                            <div style="display:block;box-sizing:border-box;padding-top:66.66666666666666%"></div><img alt="" src="/assets/img/main-img/5.jpg" decoding="async" class="bg-image" sizes="100vw" srcset="/assets/img/main-img/5.jpg, /assets/img/main-img/5.jpg, /assets/img/main-img/5.jpg, /assets/img/main-img/5.jpg, /assets/img/main-img/5.jpg" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"/>
                         </div>
                     </div>
                 </div>
                 <div class="d-none d-lg-block col-lg-5">
                     <div style="display:inline-block;max-width:100%;overflow:hidden;position:relative;box-sizing:border-box;margin:0">
-                        <div style="box-sizing:border-box;display:block;max-width:100%"><img style="max-width:100%;display:block;margin:0;border:none;padding:0" alt="" aria-hidden="true" role="presentation" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDQ1IiBoZWlnaHQ9IjU1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=" /></div><img alt="" src="assets/img/12.png" decoding="async" class="bg-image" sizes="100vw" srcset="assets/img/12.png, assets/img/12.png, assets/img/12png, assets/img/12.png, assets/img/12.png" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;" />
+                        <div style="box-sizing:border-box;display:block;max-width:100%"><img style="max-width:100%;display:block;margin:0;border:none;padding:0" alt="" aria-hidden="true" role="presentation" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDQ1IiBoZWlnaHQ9IjU1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4=" /></div><img alt="" src="/assets/img/main-img/6.jpg" decoding="async" class="bg-image" sizes="100vw" srcset="/assets/img/main-img/6.jpg, /assets/img/main-img/6.jpg, /assets/img/main-img/6.jpg, /assets/img/main-img/6.jpg, /assets/img/main-img/6.jpg" style="visibility: inherit; position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;" />
                     </div>
                 </div>
             </div>

@@ -7,6 +7,8 @@ use App\Models\Blog;
 use App\Models\tableimg;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Contact;
 
 class DataController extends Controller
 {
@@ -81,5 +83,14 @@ class DataController extends Controller
             $collection = Blog::select('id','author','topic', 'title', 'text','img_path')->selectRaw('DATE(updated_at) as date')->where('id',$blog)->get();
             return $collection;
         }
+    }
+    public function postMail(Request $request){
+        $toEmail = 'n.kryuchkov@enterprise-it.ru';
+        $email = $request->email;
+        $name = $request->name;
+        $surname = $request->surname;//Фамилия
+        $mess = $request->mess;
+        Mail::to($toEmail)->send(new Contact($name, $email, $surname, $mess));
+        return redirect()->route('/');
     }
 }

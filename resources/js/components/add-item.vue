@@ -20,9 +20,7 @@
                     touch: true,
                     numberOfSlides: 1
                     }" >
-                    <custom-component v-for="current_slide in this.slider_img" :key="current_slide.id">
-                        <div class="detail-full-item bg-cover" :style="`background-image:url(${current_slide})`"></div>
-                    </custom-component>
+                    <div v-for="current_slide in this.slider_img" :key="current_slide.id" class="detail-full-item bg-cover" :style="`background-image:url(${current_slide})`"></div>
                 </slither-slider>
             </div>
             <div v-if="!this.flagError" class="d-flex align-items-center pl-lg-5 mb-5 col-12 order-1 col-lg-6 order-lg-2 col-xl-5">

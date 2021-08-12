@@ -56,7 +56,8 @@
             </header>
             <div class="row">
                 <div class="mb-5 mb-md-0 col-md-7">
-                    <form class="">
+                    <form class="" action="/postMail" method="post">
+                        @csrf
                         <div class="controls">
                             <div class="row">
                                 <div class="col-sm-6">
@@ -67,7 +68,7 @@
                                 </div>
                             </div>
                             <div class="form-group"><label for="email" class="form-label">Ваша почта *</label><input type="email" name="email" id="email" placeholder="Введите вашу почту" required="" class="form-control" /></div>
-                            <div class="form-group"><label for="message" class="form-label">Ваше сообщение *</label><textarea rows="4" name="message" id="message" placeholder="Введите то, что хотите нам сказать" required="" class="form-control"></textarea></div><button type="submit" class="btn btn-outline-dark">Отправить</button>
+                            <div class="form-group"><label for="mess" class="form-label">Ваше сообщение *</label><textarea rows="4" name="mess" id="mess" placeholder="Введите то, что хотите нам сказать" required="" class="form-control"></textarea></div><button type="submit" class="btn btn-outline-dark">Отправить</button>
                         </div>
                     </form>
                 </div>
