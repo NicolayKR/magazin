@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Запись блога')
+@section('title', 'Blog')
 
 @section('content')
 <main>
@@ -8,8 +8,8 @@
         <div class="container">
             <nav class="" aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center no-border mb-0">
-                    <li class="breadcrumb-item"><a class="" href="/">Главная</a></li>
-                    <li class="breadcrumb-item"><a class="" href="/blog">Блог</a></li>
+                    <li class="breadcrumb-item"><a class="" href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a class="" href="/blog">Blog</a></li>
                     <li class="active breadcrumb-item" aria-current="page"><span class="">{{$collection[0]->topic}}</span></li>
                 </ol>
             </nav>

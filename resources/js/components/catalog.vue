@@ -2,10 +2,10 @@
     <div class="row" v-if="!flagError">
         <div class="products-grid sidebar-none col-12">
             <header class="product-grid-header">
-                <div class="mr-3 mb-3">Показано <strong>{{count_shows_start}}-{{count_shows}}</strong> из <strong>{{catalog_data.length}}</strong> товаров</div>
-                <div class="mr-3 mb-3"><span class="mr-2">Показать</span>
+                <div class="mr-3 mb-3">Showing <strong>{{count_shows_start}}-{{count_shows}}</strong> of <strong>{{catalog_data.length}}</strong> products</div>
+                <div class="mr-3 mb-3"><span class="mr-2">Show</span>
                     <a class="product-grid-header-show active" @click="getAllItems(false)" href="#">16</a>
-                    <a class="product-grid-header-show" @click="getAllItems(true)" href="#">Все</a>
+                    <a class="product-grid-header-show" @click="getAllItems(true)" href="#">All</a>
                 </div>
             </header>
             <div class="row" v-if="flagAll == false">
@@ -24,7 +24,7 @@
                                         <button type="submit" class="btn btn-outline-dark btn-product-left cart-add"><i class="fa fa-shopping-cart"></i></button>
                                         <input type="hidden" name="_token" :value="csrf">
                                     </form>
-                                        <a class="btn btn-dark btn-buy" :href="`/card-product/${item_data.id}`"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">Вперед</span></a>
+                                        <a class="btn btn-dark btn-buy" :href="`/card-product/${item_data.id}`"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">View</span></a>
                                 </div>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center mt-3" >
                         <li class="page-item">
-                            <a class="page-link" href="#" @click="pageClickBack">Назад</a>
+                            <a class="page-link" href="#" @click="pageClickBack">PREV</a>
                         </li>
                         <li class="page-item" v-for="page in pages" :key="page" :class="{'active':page === pageNumber}">
                             <a class="page-link" href="#" 
@@ -48,7 +48,7 @@
                                 >{{page}}</a>
                         </li>     
                         <li class="page-item">                             
-                            <a class="page-link" href="#" @click="pageClickUp">Вперед</a>
+                            <a class="page-link" href="#" @click="pageClickUp">NEXT</a>
                         </li>
                     </ul>
                 </nav>     
@@ -64,7 +64,7 @@
                                 <div style="display:block;box-sizing:border-box;padding-top:150%"></div><img alt="White Tee" :src="item_data.img_path" sizes="(max-width: 576px) 100vw, 530px" :srcSet="`${item_data.img_path} , ${item_data.img_path}, ${item_data.img_path}`" decoding="async" class="img-fluid" style="visibility:inherit;position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%" />
                             </div>
                             <div class="product-hover-overlay"><a class="product-hover-overlay-link" :href="`/card-product/${item_data.id}`"></a>
-                                <div class="product-hover-overlay-buttons"><a class="btn btn-outline-dark btn-product-left" href="#"><i class="fa fa-shopping-cart"></i></a><a class="btn btn-dark btn-buy" :href="`/card-product/${item_data.id}`"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">Вперед</span></a></div>
+                                <div class="product-hover-overlay-buttons"><a class="btn btn-outline-dark btn-product-left" href="#"><i class="fa fa-shopping-cart"></i></a><a class="btn btn-dark btn-buy" :href="`/card-product/${item_data.id}`"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">View</span></a></div>
                             </div>
                         </div>
                         <div class="py-2">
@@ -168,11 +168,11 @@ export default {
         getStatus(a){
             switch (a) {
                 case 2:
-                    return "Скидки" 
+                    return "SALE" 
                 case 3:
-                    return "Новинки"
+                    return "FRASH"
                 case 4:
-                    return "Распродано"
+                    return "SOLD"
                 }
         },
         getAllItems(a){

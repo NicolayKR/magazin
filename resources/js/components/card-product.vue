@@ -9,11 +9,11 @@
                         </svg></a><button aria-label="Toggle navigation" type="button" class="navbar-toggler-right navbar-toggler"><i class="fa fa-bars"></i></button>
                     <div class="collapse navbar-collapse">
                         <ul class="mx-auto navbar-nav">
-                            <li class="nav-item"><a aria-haspopup="true" href="/" class="nav-link" aria-expanded="false">Главная</a></li>
-                            <li class="nav-item"><a aria-haspopup="true" href="/catalog" class="nav-link" aria-expanded="false">Каталог</a></li>
-                            <li class="position-static nav-item"><a aria-haspopup="true" href="/blog" class=" nav-link" aria-expanded="false">Блог</a></li>
-                            <li class="nav-item"><a href="/about" class="nav-link">О нас</a></li>
-                            <li class="nav-item"><a href="/contact" class="nav-link">Контакты</a></li>
+                            <li class="nav-item"><a aria-haspopup="true" href="/" class="nav-link" aria-expanded="false">Home</a></li>
+                            <li class="nav-item"><a aria-haspopup="true" href="/catalog" class="nav-link" aria-expanded="false">Catalog</a></li>
+                            <li class="position-static nav-item"><a aria-haspopup="true" href="/blog" class=" nav-link" aria-expanded="false">Blog</a></li>
+                            <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+                            <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
                         </ul>
                         <!--  -->
                         <basketModal :countChange="this.flagCount"/>   
@@ -53,8 +53,8 @@
         <section class="mt-5">
             <div class="container">
                 <ul class="flex-column flex-sm-row nav nav-tabs">
-                    <li class="nav-item"><a class="detail-nav-link active nav-link">Описание</a></li>
-                    <li class="nav-item"><a class="detail-nav-link nav-link">Дополнительная информация</a></li>
+                    <li class="nav-item"><a class="detail-nav-link active nav-link">DESCRIPTION</a></li>
+                    <li class="nav-item"><a class="detail-nav-link nav-link">ADDITIONAL INFORMATION</a></li>
                 </ul>
                 <div class="tab-content py-4">
                     <div class="tab-pane px-3 active">
@@ -141,22 +141,22 @@
                     <div class="service-column col-lg-4">
                         <img class="svg-icon service-icon" src="/assets/img/car.png">
                         <div class="service-text">
-                            <h6 class="text-uppercase">Бесплатная доставка и возврат</h6>
-                            <p class="text-muted font-weight-light text-sm mb-0">При покупки от $300</p>
+                            <h6 class="text-uppercase">FREE SHIPPING & RETURN</h6>
+                            <p class="text-muted font-weight-light text-sm mb-0">Free Shipping over $300</p>
                         </div>
                     </div>
                     <div class="service-column col-lg-4">
                         <img class="svg-icon service-icon" src="/assets/img/money.png">
                         <div class="service-text">
-                            <h6 class="text-uppercase">Гарантируем возврат денег</h6>
-                            <p class="text-muted font-weight-light text-sm mb-0">Деньги вернут вам в течении 30 дней</p>
+                            <h6 class="text-uppercase">MONEY BACK GUARANTEE</h6>
+                            <p class="text-muted font-weight-light text-sm mb-0">30 Days Money Back Guarantee</p>
                         </div>
                     </div>
                     <div class="service-column col-lg-4">
                         <img class="svg-icon service-icon" src="/assets/img/support.png">
                         <div class="service-text">
                             <h6 class="text-uppercase">020-800-456-747</h6>
-                            <p class="text-muted font-weight-light text-sm mb-0">24/7 Поддержка колл-центра</p>
+                            <p class="text-muted font-weight-light text-sm mb-0">24/7 Available Support</p>
                         </div>
                     </div>
                 </div>
@@ -177,18 +177,18 @@
                         </ul>
                     </div>
                     <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
-                        <h6 class="text-uppercase text-dark mb-3">Магазин</h6>
+                        <h6 class="text-uppercase text-dark mb-3">SHOP</h6>
                         <ul class="list-unstyled">
-                            <li><a class="text-muted" href="/">Главная</a></li>
-                            <li><a class="text-muted" href="/catalog">Каталог</a></li>
-                            <li><a class="text-muted" href="/blog">Блог</a></li>
-                            <li><a class="text-muted" href="/about">О нас</a></li>
-                            <li><a class="text-muted" href="/contact">Контакты</a></li>
+                            <li><a class="text-muted" href="/">Home</a></li>
+                            <li><a class="text-muted" href="/catalog">Catalog</a></li>
+                            <li><a class="text-muted" href="/blog">Blog</a></li>
+                            <li><a class="text-muted" href="/about">About us</a></li>
+                            <li><a class="text-muted" href="/contact">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4">
-                        <h6 class="text-uppercase text-dark mb-3">Ежедневные предложения и предложения Скидки</h6>
-                        <p class="mb-3">Подпишитесь на нашу рассылку.</p>
+                        <h6 class="text-uppercase text-dark mb-3">DAILY OFFERS & DISCOUNTS</h6>
+                        <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At itaque temporibus.</p>
                         <form action="#" id="newsletter-form">
                             <div class="input-group mb-3"><input type="email" class="form-control bg-transparent border-secondary border-right-0" placeholder="Your Email Address" aria-label="Your Email Address" />
                                 <div class="input-group-append"><button class="btn btn-outline-secondary border-left-0" type="submit"><i class="fa fa-paper-plane text-lg text-dark"></i></button></div>

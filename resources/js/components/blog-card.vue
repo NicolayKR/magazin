@@ -1,7 +1,7 @@
 <template>
 <div v-if="!this.flagError">
-    Автор: <a class="text-muted font-weight-bold" :href="`/blog/${this.collection.id}`">{{this.blog_data[0].author}}</a><span class="mx-1">|</span><span class="date-format-blog">{{getMonth(this.collection.date)}}
-    <!-- --> в </span><a class="font-weight-bold" href="/blog">Блоги</a>
+    Written by <a class="text-muted font-weight-bold" :href="`/blog/${this.collection.id}`">{{this.blog_data[0].author}}</a><span class="mx-1">|</span><span class="date-format-blog">{{getMonth(this.collection.date)}}
+    <!-- --> in </span><a class="font-weight-bold" href="/blog">Blogs</a>
 </div>
 </template>
 
@@ -31,7 +31,7 @@ export default {
         getMonth(a){
             let finalDate = '';
             const date = new Date(a); 
-            const month = date.toLocaleString('ru', { month: 'long' });
+            const month = date.toLocaleString('en', { month: 'long' });
             const year = String(date.getFullYear());
             const day = String(date.getDate());
             return month.charAt(0).toUpperCase() + month.slice(1)+" "+day+", "+year;

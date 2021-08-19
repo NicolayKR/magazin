@@ -2,7 +2,7 @@
 <div class="d-flex align-items-center justify-content-between justify-content-lg-end mt-1 mb-2 my-lg-0">
     <div class="nav-item"><a class="navbar-icon-link d-lg-none" href="#"></a>
         <div class="d-lg-block">  
-            <div class="dropdown"><a href="#" aria-haspopup="true" class="navbar-icon-link" aria-expanded="false" id="basket">
+            <div class="dropdown" v-if="windowWidth>991"><a href="#" aria-haspopup="true" class="navbar-icon-link" aria-expanded="false" id="basket">
                 <i class="fas fa-shopping-cart" id="cart"></i>
                 <span class="navbar-icon-link-badge cart-index" id="index-cart">{{this.basket_count}}</span>
                 </a>                                                                        
@@ -29,6 +29,9 @@
                     </div>
                 </div>
             </div>
+            <a v-if="windowWidth<=991" href="/basket" aria-haspopup="true" class="navbar-icon-link" aria-expanded="false" id="basket">
+                <i class="fas fa-shopping-cart" id="cart"></i>
+            </a>                                                                      
         </div>
     </div>
 </div>
@@ -41,10 +44,14 @@ export default {
             basket_data:[],
             basket_count: 0,
             buy_flag : false,
+            windowWidth: window.innerWidth,
             }
     },
     mounted(){
         this.modalBasket();
+        window.onresize = () => {
+            this.windowWidth = window.innerWidth;
+        }
     },
     watch:{
         countChange(){

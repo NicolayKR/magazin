@@ -27,8 +27,8 @@
                 <div>
                     <nav class="" aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center no-border mb-0">
-                            <li class="breadcrumb-item"><a class="" href="/">Главная</a></li>
-                            <li class="breadcrumb-item"><a class="" href="/catalog">Каталог</a></li>
+                            <li class="breadcrumb-item"><a class="" href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a class="" href="/catalog">Catalog</a></li>
                             <li class="active breadcrumb-item" aria-current="page">{{this.item_data.name}}</li>
                         </ol>
                     </nav>
@@ -44,14 +44,14 @@
                         </ul>
                         <div class="d-flex align-items-center">
                             <div class="mr-2"><i class="fa fa-star text-primary mr-1"></i><i class="fa fa-star text-primary mr-1"></i><i class="fa fa-star text-primary mr-1"></i><i class="fa fa-star text-primary mr-1"></i><i class="fa fa-star text-gray-300 mr-1"></i></div><span class="text-muted text-uppercase text-sm mt-1">{{this.item_data.reviews}}
-                                    просмотров
+                                    REVIEWS
                             </span>
                         </div>
                     </div>
                     <p class="mb-4 text-muted">{{this.item_data.description}}</p>
                     <div class="row">
                         <div class="detail-option mb-4 col-sm-6 col-lg-12 col-xl-6">
-                            <h6 class="detail-option-heading">Размер</h6>
+                            <h6 class="detail-option-heading">Size</h6>
                             <div class="react-select-container css-a-container">
                                 <div class="react-select__control css-1o1npcy-control">
                                     <div class="react-select__value-container react-select__value-container--has-value css-1hwfws3">
@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="detail-option mb-5 col-12 col-lg-6"><label class="detail-option-heading font-weight-bold">Количество</label>
+                        <div class="detail-option mb-5 col-12 col-lg-6"><label class="detail-option-heading font-weight-bold">ITEMS</label>
                         <div class="num-block skin-2">
                             <div class="num-in">
                                 <span class="minus dis" @click="minusQ()"></span>
@@ -82,15 +82,15 @@
                     </div>
                     <ul class="list-inline mb-5">
                         <li v-if="this.item_data.status == 4" class="list-inline-item">
-                            <button type="button" class="mb-1 btn btn-dark btn-lg cart-add" disabled><i class="fa fa-shopping-cart mr-2"></i>Добавить в покупки</button>
+                            <button type="button" class="mb-1 btn btn-dark btn-lg cart-add" disabled><i class="fa fa-shopping-cart mr-2"></i>Add to Cart</button>
                         </li>
                         <li v-if="this.item_data.status != 4" class="list-inline-item">
-                            <button type="button" class="mb-1 btn btn-dark btn-lg cart-add" @click="addItem(item_data.id)"><i class="fa fa-shopping-cart mr-2"></i>Добавить в покупки</button>
+                            <button type="button" class="mb-1 btn btn-dark btn-lg cart-add" @click="addItem(item_data.id)"><i class="fa fa-shopping-cart mr-2"></i>Add to Cart</button>
                         </li>
                     </ul>
                     <ul class="list-unstyled">
-                        <li><strong>Категории: </strong><a class="text-muted" href="#">{{this.item_data.category}}</a></li>
-                        <li><strong>Теги: </strong><a class="text-muted">{{this.item_data.tags}}</a></li>
+                        <li><strong>Category: </strong><a class="text-muted" href="#">{{this.item_data.category}}</a></li>
+                        <li><strong>Tags: </strong><a class="text-muted">{{this.item_data.tags}}</a></li>
                     </ul>
                 </div>
             </div>

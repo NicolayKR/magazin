@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Контакты')
+@section('title', 'Contact')
 
 @section('content')
 <main>
@@ -8,12 +8,12 @@
         <div class="container">
             <nav class="" aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center no-border mb-0">
-                    <li class="breadcrumb-item"><a class="" href="/">Главная</a></li>
-                    <li class="active breadcrumb-item" aria-current="page"><span class="">Контакты</span></li>
+                    <li class="breadcrumb-item"><a class="" href="/">Home</a></li>
+                    <li class="active breadcrumb-item" aria-current="page"><span class="">Contact</span></li>
                 </ol>
             </nav>
             <div class="hero-content pb-5 text-center">
-                <h1 class="mb-5">Контакты</h1>
+                <h1 class="mb-5">Contact</h1>
                 <div class="row">
                     <div class="mx-auto col-xl-8">Are you curious about something? As am hastily invited settled at limited civilly fortune me. Really spring in extent an by. Judge but built party world. Of so am he remember although required. Bachelor unpacked be advanced at. Confined in declared marianne is vicinity.</div>
                 </div>
@@ -23,23 +23,20 @@
     <section class="py-6" style="background:#fafafa">
         <div class="container">
             <div class="row">
-                <div class="text-center text-md-left col-md-4"><svg class="svg-icon svg-icon-light text-primary w-3rem h-3rem mb-3">
-                        <use xlink:href="/icons/orion-svg-sprite.svg#navigation-map-1"></use>
-                    </svg>
-                    <h4>Адрес</h4>
-                    <p class="text-muted">Буденовский 80<br />Россия, <strong>Ростов-на-Дону</strong></p>
+                <div class="text-center text-md-center col-md-4">
+                    <img src="/assets/img/contact-1.png" class="svg-icon svg-icon-light text-primary w-3rem h-3rem mb-3"></img>
+                    <h4>Address</h4>
+                    <p class="text-muted">13/25 New Avenue<br> New Heaven, 45Y 73J <br>England, <strong>Great Britain</strong></p>
                 </div>
-                <div class="text-center text-md-left col-md-4"><svg class="svg-icon svg-icon-light text-primary w-3rem h-3rem mb-3">
-                        <use xlink:href="/icons/orion-svg-sprite.svg#audio-call-1"></use>
-                    </svg>
-                    <h4>Звоните нам</h4>
+                <div class="text-center text-md-center col-md-4">
+                    <img src="/assets/img/contact-2.png" class="svg-icon svg-icon-light text-primary w-3rem h-3rem mb-3"></img>
+                    <h4>Call center</h4>
                     <p class="text-muted">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <p class="text-muted"><strong>+33 555 444 333</strong></p>
                 </div>
-                <div class="text-center text-md-left col-md-4"><svg class="svg-icon svg-icon-light text-primary w-3rem h-3rem mb-3">
-                        <use xlink:href="/icons/orion-svg-sprite.svg#mail-1"></use>
-                    </svg>
-                    <h4>Электронный помощник</h4>
+                <div class="text-center text-md-center col-md-4">
+                    <img src="/assets/img/contact-3.png" class="svg-icon svg-icon-light text-primary w-3rem h-3rem mb-3"></img>
+                    <h4>Electronic support</h4>
                     <p class="text-muted">Please feel free to write an email to us or to use our electronic ticketing system.</p>
                     <ul class="list-unstyled text-muted">
                         <li>info@sell.com</li>
@@ -52,7 +49,7 @@
     <section class="py-6">
         <div class="container">
             <header class="mb-5">
-                <h2 class="text-uppercase h5">Заполните форму</h2>
+                <h2 class="text-uppercase h5">CONTACT FORM</h2>
             </header>
             <div class="row">
                 <div class="mb-5 mb-md-0 col-md-7">
@@ -61,14 +58,14 @@
                         <div class="controls">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <div class="form-group"><label for="name" class="form-label">Ваше имя *</label><input type="text" name="name" id="name" placeholder="Введите ваше имя" required="" class="form-control" /></div>
+                                    <div class="form-group"><label for="name" class="form-label">YOUR FIRSTNAME *</label><input type="text" name="name" id="name" placeholder="Enter your firstname" required="" class="form-control" /></div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group"><label for="surname" class="form-label">Ваша фамилия *</label><input type="text" name="surname" id="surname" placeholder="Введите вашу фамилию" required="" class="form-control" /></div>
+                                    <div class="form-group"><label for="surname" class="form-label">YOUR FIRSTNAME *</label><input type="text" name="surname" id="surname" placeholder="Enter your lasttname" required="" class="form-control" /></div>
                                 </div>
                             </div>
-                            <div class="form-group"><label for="email" class="form-label">Ваша почта *</label><input type="email" name="email" id="email" placeholder="Введите вашу почту" required="" class="form-control" /></div>
-                            <div class="form-group"><label for="mess" class="form-label">Ваше сообщение *</label><textarea rows="4" name="mess" id="mess" placeholder="Введите то, что хотите нам сказать" required="" class="form-control"></textarea></div><button type="submit" class="btn btn-outline-dark">Отправить</button>
+                            <div class="form-group"><label for="email" class="form-label">YOUR EMAIL *</label><input type="email" name="email" id="email" placeholder="Enter your email" required="" class="form-control" /></div>
+                            <div class="form-group"><label for="mess" class="form-label">YOUR MESSAGE FOR US *</label><textarea rows="4" name="mess" id="mess" placeholder="Enter your message" required="" class="form-control"></textarea></div><button type="submit" class="btn btn-outline-dark">Send message</button>
                         </div>
                     </form>
                 </div>

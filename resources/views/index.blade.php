@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Главная страница')
+@section('title', 'Home')
 
 @section('content')
 <main>
@@ -32,8 +32,8 @@
         <div class="container">
             <div class="row">
                 <div class="mx-auto text-center mb-5 col-xl-8">
-                    <h2 class="text-uppercase">Новинки</h2>
-                    <p class="lead text-muted">Новая летняя коллекция обрадует каждого!</p>
+                    <h2 class="text-uppercase">Latest arrivals</h2>
+                    <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
             </div>
             <new-items/>
@@ -43,15 +43,15 @@
         <div class="container">
             <div class="row">
                 <div class="mx-auto text-center mb-5 col-xl-8">
-                    <h2>Летняя коллекция 2021</h2>
-                    <p class="lead text-muted">Выбери одежду подходящую именно тебе. Также у нас огромный выбор аксессуаров.</p>
+                    <h2>Spring 2021 Collection</h2>
+                    <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
             </div>
             <div class="row">
                 <div class="d-flex align-items-md-stretch mb-30px mb-md-0 col-md-6">
                     <div class="d-flex align-items-center text-white dark-overlay w-100 text-center py-6 py-md-0" style="background:center center url(/assets/img/man.jpg) no-repeat;background-size:cover"><a class="tile-link" href="/catalog"></a>
                         <div class="card-img-overlay w-100 overlay-content">
-                            <h2 class="display-3 font-weight-bold text-uppercase mb-0">Мужчинам</h2>
+                            <h2 class="display-3 font-weight-bold text-uppercase mb-0">MEN</h2>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         </div><a class="tile-link" href="/catalog"></a>
                         <div class="card-img-overlay d-flex align-items-center">
                             <div class="text-center w-100 overlay-content">
-                                <h2 class="display-4 font-weight-bold text-uppercase text-center mb-0">Женщинам</h2>
+                                <h2 class="display-4 font-weight-bold text-uppercase text-center mb-0">LADIES</h2>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                         </div><a class="tile-link" href="/catalog"></a>
                         <div class="card-img-overlay d-flex align-items-center">
                             <div class="text-center w-100 overlay-content">
-                                <h2 class="display-4 font-weight-bold text-uppercase text-center mb-0">Аксессуары</h2>
+                                <h2 class="display-4 font-weight-bold text-uppercase text-center mb-0">ACCESSORIES</h2>
                             </div>
                         </div>
                     </div>
@@ -84,8 +84,8 @@
         <div class="container">
             <div class="row">
                 <div class="mx-auto text-center mb-5 col-xl-8">
-                    <h2 class="text-uppercase">Популярное</h2>
-                    <p class="lead text-muted">Самые популярные вещи в этом месяце.</p>
+                    <h2 class="text-uppercase">Your favourites</h2>
+                    <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
                 <slider-component/>
             </div>

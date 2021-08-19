@@ -10,7 +10,7 @@
                     <div class="product-hover-overlay"><a class="product-hover-overlay-link" :href="`/card-product/${item_data.id}`"></a>
                         <div class="product-hover-overlay-buttons d-flex"> 
                             <a class="btn btn-outline-dark btn-product-left cart-add" :href="`/card-product/${item_data.id}`"><i class="fa fa-shopping-cart"></i></a> 
-                            <a class="btn btn-dark btn-buy" :href="`/card-product/${item_data.id}`"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">Вперед</span></a>
+                            <a class="btn btn-dark btn-buy" :href="`/card-product/${item_data.id}`"><i class="fa-search fa"></i><span class="btn-buy-label ml-2">View</span></a>
                         </div>
                     </div>
                 </div>

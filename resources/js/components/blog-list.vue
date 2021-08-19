@@ -5,14 +5,14 @@
                 <div class="mt-3"><small class="text-uppercase text-muted">{{item_data.topic}}</small>
                     <h5 class="my-2"><a class="text-dark" :href="`/blog/${item_data.id}`">{{item_data.title}}</a></h5>
                     <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>{{getMonth(item_data.date)}}</p>
-                    <p class="my-2 text-muted">{{getLittleBitText(item_data.text)}}</p><a class="btn btn-link text-gray-700 pl-0" :href="`/blog/${item_data.id}`">Подробнее<i class="fa fa-long-arrow-alt-right ml-2"></i></a>
+                    <p class="my-2 text-muted">{{getLittleBitText(item_data.text)}}</p><a class="btn btn-link text-gray-700 pl-0" :href="`/blog/${item_data.id}`">Read more <i class="fa fa-long-arrow-alt-right ml-2"></i></a>
                 </div>
             </div>
         </div>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center mt-3" >
                 <li class="page-item">
-                    <a class="page-link" href="#" @click="pageClickBack">Назад</a>
+                    <a class="page-link" href="#" @click="pageClickBack">PREV</a>
                 </li>
                 <li class="page-item" v-for="page in pages" :key="page" :class="{'active':page === pageNumber}">
                     <a class="page-link" href="#" 
@@ -20,7 +20,7 @@
                         >{{page}}</a>
                 </li>     
                 <li class="page-item">                             
-                    <a class="page-link" href="#" @click="pageClickUp">Вперед</a>
+                    <a class="page-link" href="#" @click="pageClickUp">NEXT</a>
                 </li>
             </ul>
         </nav>
