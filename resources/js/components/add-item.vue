@@ -52,24 +52,14 @@
                     <div class="row">
                         <div class="detail-option mb-4 col-sm-6 col-lg-12 col-xl-6">
                             <h6 class="detail-option-heading">Size</h6>
-                            <div class="react-select-container css-a-container">
-                                <div class="react-select__control css-1o1npcy-control">
-                                    <div class="react-select__value-container react-select__value-container--has-value css-1hwfws3">
-                                        <div class="react-select__single-value css-1uccc91-singleValue">S</div>
-                                        <input id="react-select-2-input" readonly="" tabindex="0" value="" aria-autocomplete="list" class="css-62g3xt-dummyInput" />
-                                    </div>
-                                    <div class="react-select__indicators css-1wy0on6">
-                                        <span class="react-select__indicator-separator css-1hyfx7x"></span>
-                                        <div aria-hidden="true" class="react-select__indicator react-select__dropdown-indicator css-leftpi-indicatorContainer">
-                                            <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" class="css-19bqh2r">
-                                                <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">S</option>
+                                <option value="2">L</option>
+                                <option value="3">M</option>
+                            </select>
                         </div>
-                        <div class="detail-option mb-5 col-12 col-lg-6"><label class="detail-option-heading font-weight-bold">ITEMS</label>
+                        <div class="detail-option mb-5 col-12"><label class="detail-option-heading font-weight-bold">ITEMS</label>
                         <div class="num-block skin-2">
                             <div class="num-in">
                                 <span class="minus dis" @click="minusQ()"></span>

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Contact;
+use App\Models\NewsletterMail;
 
 class DataController extends Controller
 {
@@ -92,5 +93,12 @@ class DataController extends Controller
         $mess = $request->mess;
         Mail::to($toEmail)->send(new Contact($name, $email, $surname, $mess));
         return redirect()->route('/');
+    }
+    public function getMail(Request $request){
+        $mail = $request->query('mail');
+        NewsletterMail::create(array(
+            'mail'=>$mail
+        ));
+        return 1; 
     }
 }

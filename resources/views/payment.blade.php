@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Оформление заказа')
+@section('title', 'Ordering')
 
 @section('content')
 <main>
@@ -15,21 +15,21 @@
         <div class="row">
             <div class="col-lg-8">
                 <ul class="custom-nav mb-5 nav nav-pills">
-                <li class="w-25 nav-item"><a href="/basket-place" class="text-sm  nav-link ">Данные</a></li>
-                    <li class="w-25 nav-item"><a href="/basket-confirm" class="text-sm nav-link active">Метод оплаты</a></li>
-                    <li class="w-25 nav-item"><a href="/preview" class="text-sm disabled  nav-link">Просмотр заказа</a></li>
+                <li class="w-25 nav-item"><a href="/basket-place" class="text-sm  nav-link ">ADDRESS</a></li>
+                    <li class="w-25 nav-item"><a href="/basket-confirm" class="text-sm nav-link active">PAYMENT METHOD</a></li>
+                    <li class="w-25 nav-item"><a href="/preview" class="text-sm disabled  nav-link">ORDER PREVIEW</a></li>
                 </ul>
                 <form class="">
                     <div class="collapse show">
                         <div class="mb-5">
                             <div class="block mb-3">
-                                <div class="block-header"><a href="#" class="accordion-link font-weight-bold " aria-expanded="true">Оплата картой</a></div>
+                                <div class="block-header"><a href="#" class="accordion-link font-weight-bold " aria-expanded="true">Option one</a></div>
                                 <div class="collapse show">
                                     <div class="block-body">
                                         <div class="row">
-                                            <div class="col-md-6 form-group"><label for="card-name" class="form-label">Имя владельца</label><input type="text" name="card-name" placeholder="Name on card" value="" class="form-control" /></div>
-                                            <div class="col-md-6 form-group"><label for="card-number" class="form-label">Номер карты</label><input type="text" name="card-number" placeholder="Card number" value="" class="form-control" /></div>
-                                            <div class="col-md-4 form-group"><label for="expiry-date" class="form-label">Дата обслуживания</label><input type="text" name="expiry-date" placeholder="MM/YY" value="" class="form-control" /></div>
+                                            <div class="col-md-6 form-group"><label for="card-name" class="form-label">Name on Card</label><input type="text" name="card-name" placeholder="Name on card" value="" class="form-control" /></div>
+                                            <div class="col-md-6 form-group"><label for="card-number" class="form-label">Card Number</label><input type="text" name="card-number" placeholder="Card number" value="" class="form-control" /></div>
+                                            <div class="col-md-4 form-group"><label for="expiry-date" class="form-label">Expiry Date</label><input type="text" name="expiry-date" placeholder="MM/YY" value="" class="form-control" /></div>
                                             <div class="col-md-4 form-group"><label for="cvv" class="form-label">CVC/CVV</label><input type="text" name="cvv" placeholder="123" value="" class="form-control" /></div>
                                         </div>
                                     </div>
@@ -61,21 +61,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="my-5 d-flex justify-content-between flex-column flex-lg-row"><a href="{{route('BasketPlace')}}" class="text-muted btn btn-link"><i class="fa fa-angle-left mr-2"></i>Вернуться к личным данным</a><a href="/preview" class="btn btn-dark">Перейти к просмотру заказа<i class="fa fa-angle-right ml-2"></i></a></div>
+                    <div class="my-5 d-flex justify-content-between flex-column flex-lg-row"><a href="{{route('BasketPlace')}}" class="text-muted btn btn-link"><i class="fa fa-angle-left mr-2"></i>BACK</a><a href="/preview" class="btn btn-dark">Continue to order review<i class="fa fa-angle-right ml-2"></i></a></div>
                 </form>
             </div>
             <div class="col-lg-4">
                 <div class="block mb-5">
                     <div class="block-header">
-                        <h6 class="text-uppercase mb-0">Общая стоимость</h6>
+                        <h6 class="text-uppercase mb-0">Order Summary</h6>
                     </div>
                     <div class="block-body bg-light pt-1">
-                        <p class="text-sm">Доставка и дополнительные расходы рассчитываются на основе введенных вами значений.</p>
+                        <p class="text-sm">Shipping and additional costs are calculated based on values you have entered.</p>
                         <ul class="order-summary mb-0 list-unstyled">
-                            <li class="order-summary-item"><span>Итого по заказу</span><span>${{$order->getFullPrice()}}</span></li>
-                            <li class="order-summary-item"><span>Доставка</span><span>$0.00</span></li>
-                            <li class="order-summary-item"><span>Налог</span><span>$0.00</span></li>
-                            <li class="order-summary-item border-0"><span>Всего</span><strong class="order-summary-total">${{$order->getFullPrice()}}</strong></li>
+                            <li class="order-summary-item"><span>Order Subtotal </span><span>${{$order->getFullPrice()}}</span></li>
+                            <li class="order-summary-item"><span>Shipping and handling</span><span>$0.00</span></li>
+                            <li class="order-summary-item"><span>Tax</span><span>$0.00</span></li>
+                            <li class="order-summary-item border-0"><span>Total</span><strong class="order-summary-total">${{$order->getFullPrice()}}</strong></li>
                         </ul>
                     </div>
                 </div>

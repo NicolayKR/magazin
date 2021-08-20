@@ -99,7 +99,11 @@ class BasketController extends Controller
             return redirect()->route('index');
         }
         $order = Order::find($orderId);
-        $success = $order->saveOrder($request->fullname_invoice,$request->street_invoice,$request->emailaddress_invoice,$request->city_invoice, $request->phonenumber_invoice, $request->zip_invoice);
+        if($request->fullname_invoice and $request->street_invoice){
+            $success = $order->saveOrder($request->fullname_invoice,$request->street_invoice,$request->emailaddress_invoice,$request->city_invoice, $request->phonenumber_invoice, $request->zip_invoice);
+        }elseif($request->shipping_fullname_invoice and $request->shipping_street_invoice){
+            $success = $order->saveOrder($request->shipping_fullname_invoice,$request->shipping_street_invoice,$request->shipping_emailaddress_invoice,$request->shipping_city_invoice, $request->shipping_phonenumber_invoice, $request->shipping_zip_invoice);
+        }
         return view('payment',[
             'order' => $order
         ]);

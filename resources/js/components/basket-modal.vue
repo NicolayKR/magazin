@@ -21,11 +21,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="navbar-cart-total"><span class="text-uppercase text-muted">Цена</span><strong class="text-uppercase">${{getFullPrice()}}</strong></div>
+                    <div class="navbar-cart-total"><span class="text-uppercase text-muted">Total</span><strong class="text-uppercase">${{getFullPrice()}}</strong></div>
                     <div class="d-flex justify-content-between height-modal-button">
-                        <a class="btn btn-link text-dark mr-3" href="/basket">В корзину<i class="fa-arrow-right fa"></i></a>
-                        <a v-if="this.buy_flag==true" class="btn btn-outline-dark" href="/basket-place">Купить</a>
-                        <button v-if="this.buy_flag==false" class="btn btn-outline-dark" disabled>Купить</button>
+                        <div class="d-flex">
+                            <a class="btn btn-link text-dark mr-3" href="/basket">Cart<i class="fa-arrow-right fa"></i></a>
+                        </div>
+                        <a v-if="this.buy_flag==true" class="btn btn-outline-dark" href="/basket-place">Checkout</a>
+                        <button v-if="this.buy_flag==false" class="btn btn-outline-dark" disabled>Checkout</button>
                     </div>
                 </div>
             </div>
