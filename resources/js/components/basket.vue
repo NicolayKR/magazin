@@ -24,7 +24,7 @@
                                     <div class="cart-title text-left"><a class="text-uppercase text-dark" :href="`/card-product/${basket_item.id}`"><strong>{{basket_item.name}}</strong></a>
                                         <div class="text-muted text-sm">Size
                                             <!-- -->:
-                                            <!-- -->L
+                                            <!-- -->{{basket_item.pivot.size}}
                                         </div>
                                         <div class="text-muted text-sm">Color
                                             <!-- -->:
@@ -48,9 +48,9 @@
                                             <div class="d-md-none text-muted col-7 col-sm-9">Quantity</div>
                                             <div class="col-5 col-sm-3 col-md-12">
                                                 <div class="d-flex align-items-center">
-                                                    <button class="btn btn-items btn-items-decrease" @click="removeItem(basket_item.id)">-</button>
+                                                    <button class="btn btn-items btn-items-decrease" @click="removeItem(basket_item.id, basket_item.pivot.size)">-</button>
                                                     <input type="text" class="form-control text-center border-0 border-md input-items" :value="basket_item.pivot.count" readonly/>
-                                                    <button type="button" class="btn btn-items btn-items-increase" @click="addItem(basket_item.id)">+</button>
+                                                    <button type="button" class="btn btn-items btn-items-increase" @click="addItem(basket_item.id,basket_item.pivot.size)">+</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -64,7 +64,7 @@
                                         </div>
                                     </div>
                                     <div class="d-none d-md-block text-center col-2">
-                                        <button class="cart-remove" type="button" @click="removeAllItem(basket_item.id)"><i class="delete fa fa-times"></i></button>
+                                        <button class="cart-remove" type="button" @click="removeAllItem(basket_item.id,basket_item.pivot.size)"><i class="delete fa fa-times"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -117,6 +117,7 @@ export default {
             try{
                 const response = await axios.get('/basketData')  
                     this.basket_data = response.data;
+                    console.log(response);
                     this.flagError = false;
                 }
                 catch{
@@ -136,25 +137,25 @@ export default {
             }
             return sum;
         },
-        async removeItem(a){
+        async removeItem(a,b){
             try{
-                const response = await axios.get(`/remove-to-cart?&item=${a}`);
+                const response = await axios.get(`/remove-to-cart?&item=${a}&size=${b}`);
                 this.getBasket();
             }
             catch{
                 }     
         },
-        async removeAllItem(a){
+        async removeAllItem(a,b){
             try{
-                const response = await axios.get(`/remove-all-cart?&item=${a}`);  
+                const response = await axios.get(`/remove-all-cart?&item=${a}&size=${b}`);  
                 this.getBasket();
             }
             catch{
             }     
         },
-        async addItem(a){
+        async addItem(a,b){
             try{
-                const response = await axios.get(`/add-to-cart?&item=${a}&quant=1`)  
+                const response = await axios.get(`/add-to-cart?&item=${a}&quant=1&size=${b}`)  
                 this.getBasket();
             }
             catch{

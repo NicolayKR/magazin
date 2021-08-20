@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Contact;
 use App\Models\NewsletterMail;
+use App\Models\SizeTable;
 
 class DataController extends Controller
 {
@@ -52,7 +53,26 @@ class DataController extends Controller
     }
     public function getCardData(Request $request){
         $id = $request->query('item');
-        $product = clothes::select('id','category', 'name', 'price', 'img_path','status','reviews','old_price','description','tags')->where('id', $id)->get()->toArray();
+        $index = clothes::select('reviews')->where('id',$id)->get();
+        $product = [];
+        $collection = DB::table('clothes')
+            ->leftJoin('size_tables',function ($join) {
+                $join->on('clothes.id', '=', 'size_tables.clothes_id');})
+            ->where('clothes.id', $id)
+            ->select('clothes.id','category', 'name', 'price', 'img_path','status','reviews','old_price','description','tags','size','count')
+            ->get();
+        foreach($collection as $item){
+            $product[0]['id'] = $item->id;
+            $product[0]['name'] = $item->name;
+            $product[0]['price'] = $item->price;
+            $product[0]['img_path'] = $item->img_path;
+            $product[0]['status'] = $item->status;
+            $product[0]['reviews'] = $item->reviews;
+            $product[0]['old_price'] = $item->old_price;
+            $product[0]['description'] = $item->description;
+            $product[0]['tags'] = $item->tags;
+            $product[0]['size'][$item->size] = $item->count;
+        }
         $img_collection = tableimg::select('img_path')->where('id_product', $id)->get();
         $img_array = [];
         $final_array = [];

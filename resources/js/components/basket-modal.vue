@@ -7,13 +7,17 @@
                 <span class="navbar-icon-link-badge cart-index" id="index-cart">{{this.basket_count}}</span>
                 </a>                                                                        
                 <div tabindex="-1" role="menu" aria-hidden="true" id="basket-modal" class="p-4 dropdown-menu dropdown-menu-right">
-                    <div class="navbar-cart-product-wrapper" v-for="basket_item in basket_data" :key="basket_item.id">
+                    <div class="navbar-cart-product-wrapper" v-for="(basket_item, index) in basket_data" :key="index">
                         <div class="navbar-cart-product">
                             <div class="d-flex align-items-center"><a :href="`/card-product/${basket_item.id}`"><img class="img-fluid navbar-cart-product-image" :src="basket_item.img_path" alt="..." /></a>
                                 <div class="w-100">
-                                    <button type="button" class="close text-sm mr-2" @click="removeItem(basket_item.id)" href="#"><i class="fa fa-times"></i></button>
-                                    <div class="pl-3"><a class="navbar-cart-product-link" :href="`/card-product/${basket_item.id}`">{{basket_item.name}}</a><small class="d-block text-muted">Количество:
+                                    <button type="button" class="close text-sm mr-2" @click="removeItem(basket_item.id,basket_item.pivot.size)" href="#"><i class="fa fa-times"></i></button>
+                                    <div class="pl-3"><a class="navbar-cart-product-link" :href="`/card-product/${basket_item.id}`">{{basket_item.name}}</a>
+                                    <small class="d-block text-muted">Quantity:
                                             {{basket_item.pivot.count}}
+                                        </small>
+                                        <small class="d-block text-muted">Size:
+                                            {{basket_item.pivot.size}}
                                         </small><strong class="d-block text-sm">$
                                             {{basket_item.price}}
                                         </strong></div>
@@ -83,14 +87,15 @@ export default {
                 const response = await axios.get(`/modalBasket`)  
                 this.basket_data = response.data;
                 this.updateCount();
-                }
-                catch{
+                
+            }
+            catch{
             
-                }                
+            }                
         },
-        async removeItem(a){
+        async removeItem(a,b){
             try{
-                const response = await axios.get(`/remove-all-cart?&item=${a}`)  
+                const response = await axios.get(`/remove-all-cart?&item=${a}&size=${b}`)  
                 this.modalBasket();
             }
             catch{
@@ -103,9 +108,6 @@ export default {
             });
             return sum;
         }, 
-        async goRoute(a){
-            this.$router.push({ name: a })
-        }
     }
 }
 </script>

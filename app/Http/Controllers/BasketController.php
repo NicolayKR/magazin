@@ -6,6 +6,8 @@ use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 use App\Models\clothes;
 use App\Models\Order;
+use Illuminate\Support\Facades\DB;
+use App\Models\SizeTable;
 
 class BasketController extends Controller
 {
@@ -14,73 +16,84 @@ class BasketController extends Controller
         date_default_timezone_set("Europe/Moscow");
         if(!is_null($orderId)){
             $order = Order::findOrFail($orderId);
+            return $order->clothes;
         }else{
             $order = null;
+            return 0;
         }
-        return $order->clothes;
     }
     public function modalBasket(){
         $orderId = session('orderId');
         if(!is_null($orderId)){
             $order = Order::findOrFail($orderId);
+            return $order->clothes;
         }else{
             $order = null;
+            return 0;
         }
-        return $order->clothes;
     }
     public function addToCart(Request $request)
     {
         date_default_timezone_set("Europe/Moscow");
         $id = (int)$request->query('item');
         $quant = (int)$request->query('quant');
+        $size = $request->query('size');
         $orderId = session('orderId');
+        $current_quant = 0;
         if(is_null($orderId)){
             $order = Order::create();
             session(['orderId'=> $order->id]);
+            $orderId = session('orderId');
         }else{
             $order = Order::find($orderId);
         }
-        if($order->clothes->contains($id)){
-            $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
-            $pivotRow->count = $pivotRow->count+$quant;
-            $pivotRow->update();
-            return redirect()->route('basket');
-        }else{
-            $order->clothes()->attach($id); 
-            $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
-            if($quant > 1){
-                $pivotRow->count = $quant;
-            }
-            else{
-                $pivotRow->count = 1;
-            }
-            $pivotRow->update();
+        if($quant > 1){
+            $current_quant = $quant;
         }
+        else{
+            $current_quant = 1;
+        }
+        if(DB::table('clothes_order')->where('order_id', $orderId)->where('clothes_id', $id)->where('size', $size)->exists()){
+            $count = DB::table('clothes_order')->where('order_id', $orderId)->where('clothes_id', $id)->where('size', $size)->select('count')->get();
+            DB::table('clothes_order')->where('order_id', $orderId)->where('clothes_id', $id)->where('size', $size)->update([
+                'count'=>$count[0]->count + $current_quant,
+            ]);
+        }else{
+            DB::table('clothes_order')->insert([
+                'order_id'=>$orderId,
+                'clothes_id'=> $id,
+                'count' => $current_quant,
+                'size'=>$size,
+                'created_at'=> date("Y-m-d H:i:s"),  
+            ]);
+        }
+        
     }
     public function removeToCart(Request $request){
+        date_default_timezone_set("Europe/Moscow");
         $id = $request->query('item');
+        $size = $request->query('size');
         $orderId = session('orderId');
         $order = Order::find($orderId);
-        if($order->clothes->contains($id)){
-            $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
-            if($pivotRow->count < 2){
-                $order->clothes()->detach($id); 
-            }else{
-                $pivotRow->count--;
-                $pivotRow->update();
-            }
+        $count = DB::table('clothes_order')->where('order_id', $orderId)->where('clothes_id', $id)->where('size', $size)->select('count')->get();
+        if($count[0]->count < 2){
+            DB::table('clothes_order')->where('order_id', $orderId)->where('clothes_id', $id)->where('size', $size)->delete();
         }else{
-            $order->clothes()->detach($id); 
+            DB::table('clothes_order')->where('order_id', $orderId)->where('clothes_id', $id)->where('size', $size)->update([
+                'count'=>$count[0]->count-1,
+            ]);
         }
+        
     }
     public function removeAllCart(Request $request){
+        date_default_timezone_set("Europe/Moscow");
         $id = $request->query('item');
+        $size = $request->query('size');
         $orderId = session('orderId');
         if(is_null($orderId)){
             return redirect()->route('basket');
         }
-        $order = Order::find($orderId);
-        $order->clothes()->detach($id); 
+        DB::table('clothes_order')->where('order_id', $orderId)->where('clothes_id', $id)->where('size', $size)->delete();
     }
     public function BasketPlace(){
         $orderId = session('orderId');
@@ -94,6 +107,7 @@ class BasketController extends Controller
         }
     }
     public function BasketConfirm(Request $request){
+        date_default_timezone_set("Europe/Moscow");
         $orderId = session('orderId');
         if(is_null($orderId)){
             return redirect()->route('index');
@@ -113,7 +127,7 @@ class BasketController extends Controller
         if(!is_null($orderId)){
             $order = Order::findOrFail($orderId);
         }else{
-            $order = null;
+            $order = 0;
         }
         return view('preview', [
             'order' => $order
@@ -124,7 +138,7 @@ class BasketController extends Controller
         if(!is_null($orderId)){
             $order = Order::findOrFail($orderId);
         }else{
-            $order = null;
+            $order = 0;
         }
         $success = $order->getStatus();
         session()->forget('orderId');

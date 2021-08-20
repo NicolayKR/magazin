@@ -8,10 +8,10 @@ use App\Models\clothes;
 class Order extends Model
 {
     protected $fillable = [
-        'email','telephone','street','city','street','zip', 'name'
+        'email','telephone','street','city','street','zip', 'name','size'
     ];
     public function clothes(){
-        return $this->belongsToMany(clothes::class)->withPivot('count')->withTimestamps();
+        return $this->belongsToMany(clothes::class)->withPivot('count','size')->withTimestamps();
     }
     public function getFullPrice(){
         $sum = 0;

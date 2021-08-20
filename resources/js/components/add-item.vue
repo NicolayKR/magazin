@@ -52,11 +52,9 @@
                     <div class="row">
                         <div class="detail-option mb-4 col-sm-6 col-lg-12 col-xl-6">
                             <h6 class="detail-option-heading">Size</h6>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">S</option>
-                                <option value="2">L</option>
-                                <option value="3">M</option>
+                            <select class="form-select" aria-label="Default select example" @change="onChange($event)" :value="this.choose_size">
+                                <!-- <option selected disabled>Choose size</option> -->
+                                <option v-for="size of size_array" :key="size" :value="size">{{size}}</option>
                             </select>
                         </div>
                         <div class="detail-option mb-5 col-12"><label class="detail-option-heading font-weight-bold">ITEMS</label>
@@ -100,7 +98,10 @@ export default {
             item_data: [],
             flagError: true,
             slider_img: null,
+            choose_size: '',
             flagCount: 0,
+            size_array: [],
+            select_size_array:[],
             }
     },
     mounted(){
@@ -109,7 +110,7 @@ export default {
     watch:{
         flagCount(){
             this.BasketChange();
-        }
+        },
     },
     methods:{      
         minusQ(){
@@ -125,6 +126,10 @@ export default {
             try{
                 const response = await axios.get(`/getCardData?&item=${this.current_item}`)  
                 this.item_data = response.data[0];
+                for(var key in this.item_data.size) {
+                    this.size_array.push(key);
+                }
+                this.choose_size = this.size_array[0];
                 this.slider_img = this.item_data.img_slider[0];
                 this.flagError = false;
             }
@@ -134,9 +139,10 @@ export default {
         },
         async addItem(a){
             try{
-                const response = await axios.get(`/add-to-cart?&item=${a}&quant=${this.countQ}`);
-               // console.log(this.countQ);
-                this.flagCount++;
+                if(this.choose_size!=''){
+                    const response = await axios.get(`/add-to-cart?&item=${a}&quant=${this.countQ}&size=${this.choose_size}`);
+                    this.flagCount++;
+                }
             }
             catch{
                
@@ -144,7 +150,10 @@ export default {
         },
         BasketChange() {
             this.$emit('BasketChange', {flagCount: this.flagCount});
-        }  
+        } ,
+        onChange(event) {
+            this.choose_size=event.target.value;
+        }
     }
 }
 </script>
