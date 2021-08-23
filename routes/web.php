@@ -68,58 +68,15 @@ Route::get('/slider', function () {
     return view('test');
 });
 Route::get('/test', function () {
-    date_default_timezone_set("Europe/Moscow");
-        $id = 2;
-        $quant = 2;
-        $size = 'L';
-        $orderId = session('orderId');
-        $current_quant = 0;
-        if(is_null($orderId)){
-            $order = Order::create();
-            session(['orderId'=> $order->id]);
-        }else{
-            $order = Order::find($orderId);
-        }
-        if($order->clothes->contains($id)){
-            $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
-            if($pivotRow->size == $size){
-                $pivotRow->count = $pivotRow->count+$quant;
-                $pivotRow->update();
-            }
-            else{
-                if($quant > 1){
-                    $current_quant = $quant;
-                }
-                else{
-                    $current_quant = 1;
-                }
-                if(DB::table('clothes_order')->where('order_id', $orderId)->where('clothes_id', $id)->where('size', $size)->exists()){
-                    $count = DB::table('clothes_order')->where('order_id', $orderId)->where('clothes_id', $id)->where('size', $size)->select('count')->get();
-                    DB::table('clothes_order')->where('order_id', $orderId)->where('clothes_id', $id)->where('size', $size)->update([
-                        'count'=>$count[0]->count + $quant,
-                    ]);
-                }else{
-                    DB::table('clothes_order')->insert([
-                        'order_id'=>$orderId,
-                        'clothes_id'=> $id,
-                        'count' => $current_quant,
-                        'size'=>$size,
-                        'created_at'=> date("Y-m-d H:i:s"),  
-                    ]);
-                }
-            }
-        }else{
-            $order->clothes()->attach($id); 
-            $pivotRow = $order->clothes()->where('clothes_id', $id)->first()->pivot;
-            $pivotRow->size = $size;
-            if($quant > 1){
-                $pivotRow->count = $quant;
-            }
-            else{
-                $pivotRow->count = 1;
-            }
-            $pivotRow->update();
-        }
+    for($i=1; $i<50; $i++){
+        $current_status = rand(1, 4);
+        $newObject = SizeTable::create(array(
+            'clothes_id'=>$i,
+            'size'=>'M',
+            'count'=>$current_status
+        ));
+        $newObject->save();
+    }
     // for($j=1; $j<30;$j++){
     //     for($i=1; $i<4; $i++){
     //         $current_status = rand(2, 5);

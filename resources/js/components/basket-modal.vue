@@ -103,10 +103,15 @@ export default {
         },
         getFullPrice(){
             let sum = 0;
-            this.basket_data.forEach((element) =>{
+            if(this.basket_data!=0){
+                this.basket_data.forEach((element) =>{
                 sum = sum+ (Number(element.price)*Number(element.pivot.count));
             });
             return sum;
+            }
+            else{
+                return 0;
+            }
         }, 
     }
 }

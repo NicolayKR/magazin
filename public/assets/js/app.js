@@ -5367,10 +5367,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     getFullPrice: function getFullPrice() {
       var sum = 0;
-      this.basket_data.forEach(function (element) {
-        sum = sum + Number(element.price) * Number(element.pivot.count);
-      });
-      return sum;
+
+      if (this.basket_data != 0) {
+        this.basket_data.forEach(function (element) {
+          sum = sum + Number(element.price) * Number(element.pivot.count);
+        });
+        return sum;
+      } else {
+        return 0;
+      }
     }
   }
 });
@@ -5526,23 +5531,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 3:
                 response = _context.sent;
                 _this.basket_data = response.data;
-                console.log(response);
                 _this.flagError = false;
-                _context.next = 13;
+                _context.next = 11;
                 break;
 
-              case 9:
-                _context.prev = 9;
+              case 8:
+                _context.prev = 8;
                 _context.t0 = _context["catch"](0);
-                _this.flagError = true;
-                console.log("error /basket");
+                _this.flagError = true; //console.log("error /basket");
 
-              case 13:
+              case 11:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 9]]);
+        }, _callee, null, [[0, 8]]);
       }))();
     },
     getFullPriceItem: function getFullPriceItem(a) {
@@ -5551,13 +5554,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     getFullPrice: function getFullPrice() {
       var sum = 0;
 
-      if (this.basket_data != null) {
+      if (this.basket_data != 0) {
         this.basket_data.forEach(function (element) {
           sum = sum + Number(element.price) * Number(element.pivot.count);
         });
+        return sum;
+      } else {
+        return 0;
       }
-
-      return sum;
     },
     removeItem: function removeItem(a, b) {
       var _this2 = this;
@@ -45692,7 +45696,7 @@ var render = function() {
       _c("div", { staticClass: "cart" }, [
         _vm._m(0),
         _vm._v(" "),
-        this.basket_data.length != 0
+        this.basket_data != 0
           ? _c(
               "div",
               _vm._l(_vm.basket_data, function(basket_item) {
@@ -45936,7 +45940,7 @@ var render = function() {
                                     },
                                     [
                                       _c(
-                                        "button",
+                                        "a",
                                         {
                                           staticClass: "cart-remove",
                                           attrs: { type: "button" },
@@ -45971,7 +45975,7 @@ var render = function() {
             )
           : _vm._e(),
         _vm._v(" "),
-        this.basket_data.length == 0
+        this.basket_data == 0
           ? _c(
               "div",
               { staticClass: "alert alert-primary", attrs: { role: "alert" } },
@@ -46021,7 +46025,7 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    this.basket_data.length != 0
+    this.basket_data != 0
       ? _c("div", { staticClass: "col-lg-4" }, [
           _c("div", { staticClass: "block mb-5" }, [
             _vm._m(4),

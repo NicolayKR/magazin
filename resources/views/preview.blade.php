@@ -77,13 +77,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="d-none d-md-block text-center col-2">
+                                            <!-- <div class="d-none d-md-block text-center col-2">
                                                 <form action="/remove-all-cart/{{$product->id}}" method="POST">
-                                                    <button class="cart-remove" type="submit"><i class="delete fa fa-times"></i></button>
+                                                    <button class="cart-remove" style="border: none; background-color: white;" type="submit"><i class="delete fa fa-times"></i></button>
                                                     @csrf
                                                 </form>
                                             
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>

@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="this.basket_data.length!=0">
+            <div v-if="this.basket_data!=0">
                 <div v-for="basket_item in basket_data" :key="basket_item.id" class="cart-body">
                     <div class="cart-item">
                         <div class=" d-flex align-items-center text-left text-md-center row">
@@ -64,7 +64,7 @@
                                         </div>
                                     </div>
                                     <div class="d-none d-md-block text-center col-2">
-                                        <button class="cart-remove" type="button" @click="removeAllItem(basket_item.id,basket_item.pivot.size)"><i class="delete fa fa-times"></i></button>
+                                        <a class="cart-remove" type="button" @click="removeAllItem(basket_item.id,basket_item.pivot.size)"><i class="delete fa fa-times"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="this.basket_data.length == 0" class="alert alert-primary" role="alert">
+            <div v-if="this.basket_data == 0" class="alert alert-primary" role="alert">
                 Your cart is empty!
             </div>
         </div>
@@ -82,7 +82,7 @@
             <button v-if="basket_data.length ==0" class="btn btn-dark" disabled>Proceed to checkout<i class="fa fa-chevron-right ms-1"></i></button>
         </div>
     </div>
-    <div v-if="this.basket_data.length != 0" class="col-lg-4">
+    <div v-if="this.basket_data != 0" class="col-lg-4">
         <div class="block mb-5">
             <div class="block-header">
                 <h6 class="text-uppercase mb-0">Order Summary</h6>
@@ -117,12 +117,11 @@ export default {
             try{
                 const response = await axios.get('/basketData')  
                     this.basket_data = response.data;
-                    console.log(response);
                     this.flagError = false;
                 }
                 catch{
                     this.flagError = true;
-                    console.log("error /basket");
+                    //console.log("error /basket");
                 }                
         },
         getFullPriceItem(a){
@@ -130,12 +129,15 @@ export default {
         },
         getFullPrice(){
             let sum = 0;
-            if(this.basket_data!=null){
+            if(this.basket_data!=0){
                 this.basket_data.forEach((element) =>{
                     sum = sum+ (Number(element.price)*Number(element.pivot.count));
                 });
+                return sum;
             }
-            return sum;
+            else{
+                return 0;
+            }
         },
         async removeItem(a,b){
             try{
